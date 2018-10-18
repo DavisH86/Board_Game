@@ -1,7 +1,19 @@
-import React from 'react'
+import React from 'react';
+import 'babel-polyfill';
+import BoardgameContainer from './BoardgameContainer';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
-export const App = (props) => {
-  return (<h1>Make It So React</h1>)
+ const App = (props) => {
+  return (
+<div>
+  <h1>hit it</h1>
+
+    <Router history={browserHistory}>
+      <Route path='/' component={BoardgameContainer} />
+
+    </Router>
+</div>
+  )
 }
 
 export default App
