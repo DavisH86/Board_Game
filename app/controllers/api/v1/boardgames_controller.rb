@@ -4,6 +4,9 @@ class Api::V1::BoardgamesController < ApplicationController
     boardgames = Boardgame.all
     render json: boardgames
   end
+  def new
+    boardgame = boardgame.new
+  end
 
   # def show
   #   boardgame = Boardgame.find(params[:id])

@@ -1,4 +1,4 @@
 class Favorite < ApplicationRecord
-  belongs_to :user, presence: true
-  belongs_to :boardgame, presence: true
+  belongs_to :user
+  belongs_to :boardgame
 end
