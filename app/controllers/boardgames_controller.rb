@@ -1,6 +1,6 @@
 class BoardgamesController < ApplicationController
   def index
-    @boardgames = Boardgame.all
+    @boardgames = Boardgame.order(:title)
   end
   def new
     @boardgame = Boardgame.new
