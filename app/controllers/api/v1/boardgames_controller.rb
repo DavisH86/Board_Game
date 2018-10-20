@@ -1,15 +1,17 @@
 class Api::V1::BoardgamesController < ApplicationController
+protect_from_forgery unless: -> { request.format.json? }
 
   def index
-    boardgames = Boardgame.all
-    render json: boardgames
+    render json: Boardgame.all
   end
   def new
-    boardgame = boardgame.new
+    boardgame = Boardgame.new
   end
 
-  # def show
-  #   boardgame = Boardgame.find(params[:id])
+  def show
+    boardgame = Boardgame.find(params[:id])
+    render json: boardgame
+  end
   #   reviews = beer.reviews
   #   obj = {
   #     beer: beer,

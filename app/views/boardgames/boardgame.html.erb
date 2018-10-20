@@ -1,0 +1,6 @@
+<h2>Boardgames of Boston:</h2>
+  <% @boardgames.each do |boardgame| %>
+    <h4><%= boardgame.title %></h4>
+    <p>Description: <%= boardgame.description %></p>
+    <p>Rate: <%= boardgame.rating %>%</p>
+  <%end%>

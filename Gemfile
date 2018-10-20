@@ -62,3 +62,4 @@ gem 'webpacker', '~> 3.3'
 gem "active_model_serializers"
 gem "react_on_rails"
 gem "shoulda-matchers"
+gem "bgg"

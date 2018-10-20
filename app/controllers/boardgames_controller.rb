@@ -14,6 +14,6 @@ class BoardgamesController < ApplicationController
 
   private
   def boardgame_params
-    params.require(:boardgame).permit(:name, :rating, :description)
+    params.require(:boardgame).permit(:title, :rating, :description)
   end
 end

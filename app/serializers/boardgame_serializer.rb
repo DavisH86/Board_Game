@@ -1,3 +1,3 @@
 class BoardgameSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :title, :description, :rating
 end
