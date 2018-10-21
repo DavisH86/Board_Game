@@ -11,6 +11,6 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates_uniqueness_of :user_name
 
-  has_many :events
+  has_and_belongs_to_many :events
   has_many :boardgames, through: :events
 end
