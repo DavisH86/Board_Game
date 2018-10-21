@@ -1,0 +1,21 @@
+<h2><%= "Event: #{@event.name}" %></h2>
+<%= "Description: #{@event.description}" %><br>
+<%= "Location: #{@event.location}" %><br>
+
+<h3><%= "Members Attending" %></h3>
+<% disable = false %>
+<% @event.users.each do |user| %>
+  <%= user.first_name %>
+  <% if user.id == current_user.id %>
+    <% disable = true %>
+  <% end %>
+<% end %>
+
+<% button_text = 'Sign up' %>
+<% if disable == true %>
+  <% button_text = "See you at the event" %>
+<% end %>
+
+
+<%= button_to button_text, { action: "update", id: @event.id }, {method: :patch, disabled: disable } %>
+<hr>
