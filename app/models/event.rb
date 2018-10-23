@@ -3,6 +3,6 @@ class Event < ApplicationRecord
   validates :location, presence: true
   validates :description, presence: true
 
+  has_many :boardgames
   has_and_belongs_to_many :users
-  belongs_to :boardgame
 end
