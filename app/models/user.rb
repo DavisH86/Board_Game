@@ -12,5 +12,7 @@ class User < ApplicationRecord
   validates_uniqueness_of :user_name
 
   has_and_belongs_to_many :events
+  has_and_belongs_to_many :groups
+
   has_many :boardgames, through: :events
 end

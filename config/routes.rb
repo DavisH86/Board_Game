@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   #     resources :boardgames, only: [:index]
   #   end
   # end
-  resources :events, only: [:index, :show, :create, :update]
+  resources :events, only: [:index, :show, :create, :update, :new]
+  resources :groups, only: [:index, :show, :create, :update, :new]
   get '/boardgames', to: 'homes#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

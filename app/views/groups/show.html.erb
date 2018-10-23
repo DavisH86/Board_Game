@@ -1,0 +1,21 @@
+<h2><%= "Group: #{@group.name}" %></h2>
+<%= "Description: #{@group.description}" %><br>
+
+<h3><%= "Members Attending" %></h3>
+
+<% disable = false %>
+<% @group.users.each do |user| %>
+  <%= "User: #{user.user_name},  #{user.first_name}" %><br>
+  <% if user.id == current_user.id %>
+    <% disable = true %>
+  <% end %>
+<% end %>
+
+<% button_text = 'Sign up' %>
+<% if disable == true %>
+  <% button_text = "Welcome fellow member" %>
+<% end %>
+
+<%= button_to button_text, { action: "update", id: @group.id }, {method: :patch, disabled: disable } %>
+<hr>
+<%= link_to "Group Page", groups_path %>

@@ -5,7 +5,7 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.string :location, null: false
       t.string :description, null: false
       t.belongs_to :user
-      t.belongs_to :boardgame
+      t.belongs_to :group
 
       t.timestamps null: false
     end
