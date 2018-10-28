@@ -3,6 +3,8 @@ class Boardgame < ApplicationRecord
   validates :description, presence: true
   validates :rating, presence: true
 
-  has_many :events
+  has_and_belongs_to_many :events
   has_many :users, through: :events
+
+  
 end

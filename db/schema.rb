@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_23_021016) do
+ActiveRecord::Schema.define(version: 2018_10_24_012901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 2018_10_23_021016) do
     t.string "rating", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "boardgames_events", force: :cascade do |t|
+    t.bigint "boardgame_id"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["boardgame_id"], name: "index_boardgames_events_on_boardgame_id"
+    t.index ["event_id"], name: "index_boardgames_events_on_event_id"
   end
 
   create_table "events", force: :cascade do |t|

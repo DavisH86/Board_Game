@@ -8,6 +8,10 @@ class Api::V1::BoardgamesController < ApplicationController
     boardgame = boardgame.new
   end
 
+  def search
+    @boardgames = Boardgame.where("name ILIKE ?", "%#{params['search_string']}%")
+    render json: @boardgames
+  end
   # def show
   #   boardgame = Boardgame.find(params[:id])
   #   reviews = beer.reviews

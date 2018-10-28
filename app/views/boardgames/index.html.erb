@@ -1,0 +1,26 @@
+<h1>Boardgame Index</h1>
+<%= link_to "Add New Board Game", new_boardgame_path %> |
+<%= link_to "Group Page", groups_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @boardgames.each do |boardgame| %>
+    <tr>
+      <td>
+        <%= link_to boardgame.title, boardgame_path(boardgame) %><br>
+      </td>
+      <td>
+        <%= "Rated on: #{boardgame.rating}" %>
+      </td>
+    </tr>
+    <% end %>
+
+
+  </tbody>
+</table>
