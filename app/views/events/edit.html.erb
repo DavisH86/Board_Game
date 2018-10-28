@@ -1,4 +1,4 @@
-<h1>New Event Form</h1>
+<h1>Edit Event Form</h1>
 
 <%= form_for(@event) do |f| %>
 
@@ -6,29 +6,28 @@
     <li><%= message %></li>
   <% end %>
 
-  <div class="field column 3" >
+  <div class="field">
     <%= f.label :name, "Name:" %>
     <%= f.text_field :name %>
   </div><br>
 
-  <div class="field column 3">
+  <div class="field">
     <%= f.label :location, "Location:" %>
     <%= f.text_field :location %>
   </div><br>
 
-  <div class="field column 3">
+  <div class="field">
     <%= f.label :description, "Description:"%>
     <%= f.text_field :description %>
   </div><br>
 
-  <div class="control-group ">
+  <div class="control-group">
     <%= f.label :boardgame, "Boardgames:"%>
-    <%= f.collection_select('boardgame_ids', Boardgame.all, :id, :id, prompt: true)  %>
+    <%= f.collection_select(:boardgame_ids, Boardgame.all, :id, :title, {}, {multiple: true})  %>
   </div><br>
 
-
-  <div class="field">
-    <%= f.submit "Add Event"%>
+  <div class="action">
+    <%= f.submit "Save Change"%>
   </div><br>
 <% end %>
 
