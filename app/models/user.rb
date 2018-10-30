@@ -15,4 +15,9 @@ class User < ApplicationRecord
   has_and_belongs_to_many :groups
 
   has_many :boardgames, through: :events
+  has_many :events, foreign_key: "supervisor_id"
+
+  def full_name
+    `#{first_name} #{last_name}`
+  end
 end

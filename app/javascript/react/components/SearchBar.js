@@ -5,10 +5,10 @@ class SearchBar extends Component {
     super(props);
     this.state = {
       boardGames: [],
-      serchString: ''
+      searchString: ''
     }
     this.handleChange = this.handleChange.bind(this)
-    this.handleSearch = this.handleSearch.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleChange(event) {
@@ -16,11 +16,28 @@ class SearchBar extends Component {
     this.setState({ searchString: newSearchString })
   }
 
-  handleSearch(event) {
+  handleSubmit(event) {
     event.preventDefault()
-    console.log(`Form submitted: ${this.state.serchString}`);
+    const body = JSON.stringify({
+      search_string: this.state.searchString
+    })
+    fetch('/api/v1/boardgames/search.json', {
+      method: 'POST',
+      body: body,
+      credentials: 'same-origin',
+      hearders: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
+    })
+    .then(response => response.json())
+    .then(body => {
+      this.setState({boardGames: body})
+    })
   }
   render() {
+    const boardGames = this.state.boardGames.map(game => {
+      return(
+        <li>{game.title}</li>
+      )
+    })
     return(
       <form onSubmit={this.handleSubmit}>
        <label>Search</label>
@@ -31,3 +48,5 @@ class SearchBar extends Component {
     )
   }
 }
+
+export default SearchBar;

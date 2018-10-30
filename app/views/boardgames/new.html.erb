@@ -6,22 +6,22 @@
     <li><%= message %></li>
   <% end %>
 
-  <div class="field">
+  <div class="field column 3">
     <%= f.label :title, "Title:" %>
     <%= f.text_field :title %>
   </div><br>
 
-  <div class="field">
+  <div class="field column 3">
     <%= f.label :description, "Description:"%>
     <%= f.text_field :description %>
   </div><br>
 
-  <div class="field">
+  <div class="field column 3">
     <%= f.label :rating, "Rating:"%>
     <%= f.text_field :rating %>
   </div><br>
 
-  <div class="field">
+  <div class="field column 3">
     <%= f.submit "Add Boardgame"%>
   </div><br>
 <% end %>

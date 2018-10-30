@@ -11,11 +11,10 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
-
   def create
     @event = Event.new(event_params)
     @event.boardgames = Boardgame.where(id: params[:event][:boardgame_ids])
-    @event.user_id = current_user.id
+    @event.supervisor = current_user
     @boardgames = @event.boardgames
 
     if @event.save
@@ -37,7 +36,6 @@ class EventsController < ApplicationController
   end
 
   def update
-    
     @event = Event.find(params[:id])
     if @event.update(event_params)
       redirect_to (@event)
