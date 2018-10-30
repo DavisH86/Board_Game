@@ -1,0 +1,18 @@
+<h1>Search Results</h1>
+<br >
+<% if @boardgames.empty? %>
+
+<p>No results found.</p>
+
+<% else %>
+
+<p><%= "#{@boardgames.count} result(s) found." %></p>
+
+<ul class="unstyled">
+  <% @boardgames.each do |boardgame| %>
+  <li>
+    <%= link_to boardgame.title, boardgame %>
+  </li>
+  <% end %>
+</ul>
+<% end %>

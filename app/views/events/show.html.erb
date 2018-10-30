@@ -5,10 +5,17 @@
   <%= "Board Game: #{b.title}" %>
 <% end %><br>
 
+<h3><%= "Supervising:" %></h3>
+<ul>
+  <li><%= "#{@event.supervisor.first_name} #{@event.supervisor.last_name}" %></li>
+</ul>
+
 <h3><%= "Members Attending" %></h3>
 <% disable = false %>
 <% @event.users.each do |user| %>
-  <%= "User: #{user.first_name} #{user.last_name}" %><br>
+  <ul>
+    <li><%= "User: #{user.first_name} #{user.last_name}" %></li>
+  </ul>
   <% if user.id == current_user.id %>
     <% disable = true %>
   <% end %>
@@ -21,5 +28,7 @@
 
 <%= button_to button_text, { action: "join", id: @event.id }, {method: :patch, disabled: disable } %>
 <hr>
+<% if current_user == @event.supervisor %>
 <li><%= link_to "Edit", edit_event_path(@event) %></li>
+<% end %>
 <%= link_to "Back", events_path %>

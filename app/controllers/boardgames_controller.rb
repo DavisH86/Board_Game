@@ -1,7 +1,13 @@
 class BoardgamesController < ApplicationController
   def index
-    @boardgames = Boardgame.all.order(:title)
+    @boardgames = Boardgame.all
   end
+
+  def search
+    # @boardgames = Boardgame.where(title: params[:boardgame][:title])
+    @boardgames = Boardgame.where('title ILIKE?', "%#{params[:title]}%")
+  end
+
   def new
     @boardgame = Boardgame.new
   end
@@ -21,10 +27,6 @@ class BoardgamesController < ApplicationController
       render :new
     end
   end
-
-  def edit
-  end
-
 
   private
   def boardgame_params

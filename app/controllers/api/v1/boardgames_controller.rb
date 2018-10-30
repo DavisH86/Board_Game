@@ -9,16 +9,16 @@ class Api::V1::BoardgamesController < ApplicationController
   end
 
   def search
-    @boardgames = Boardgame.where("name ILIKE ?", "%#{params['search_string']}%")
+    @boardgames = Boardgame.where("title ILIKE ?", "%#{params['search_string']}%")
     render json: @boardgames
   end
-  # def show
-  #   boardgame = Boardgame.find(params[:id])
+  def show
+    boardgame = Boardgame.find(params[:id])
   #   reviews = beer.reviews
   #   obj = {
   #     beer: beer,
   #     reviews: reviews
   #   }
   #   render json: obj
-  # end
+  end
 end

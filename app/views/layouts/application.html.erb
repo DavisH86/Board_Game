@@ -18,9 +18,21 @@
       </li>
     </ul>
 
+    <%= form_tag(search_boardgames_path, method: :get) do |f|%>
+      <ul >
+        <div>
+          <li class="small-3 columns"><%= text_field_tag :title %></li>
+        </div>
+        <div>
+          <li class="small-3 columns"><%= submit_tag 'Search' %></li>
+        </div>
+      </ul>
+    <% end %>
+
     <section class="top-bar-section">
       <ul class="right">
         <%- if current_user -%>
+          <li><%= link_to "edit account", edit_user_registration_path %></li>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <%- else -%>
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>
