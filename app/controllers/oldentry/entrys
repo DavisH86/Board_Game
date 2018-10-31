@@ -1,0 +1,20 @@
+# def update
+#   @event = Event.find(params[:id])
+#
+#   # if @event.update(event_params)
+#   #   redirect_to (@event)
+#   # else
+#   #   render :edit
+#   # end
+#
+#   @event.users << current_user #user currently signed-in after click join
+#   if @event.save
+#
+#     flash[:notice] = "You have join an event!"
+#     redirect_to :action => "show"
+#   else
+#     flash[:error] = "Sorry you have not joined an event."
+#   end
+# end
+
+# @boardgames = Boardgame.where(title: params[:boardgame][:title])

@@ -1,0 +1,18 @@
+
+<!-- <%= form_for(:boardgame, {method: :get,  url: search_boardgames_path }) do |f|%>
+  <div class="field column 2">
+  <%= f.text_field :title, placeholder: "Enter search here..." %>
+  <%= f.submit 'Search' %>
+  </div>
+<% end %> -->
+
+<%= form_tag(search_boardgames_path, method: :get) do |f|%>
+  <ul >
+    <div>
+      <li class="small-3 medium-3 Large-3 columns"><%= text_field_tag :title %></li>
+    </div>
+    <div>
+      <li class="small-3 medium-3 Large-3 columns"><%= submit_tag 'Search' %></li>
+    </div>
+  </ul>
+<% end %>

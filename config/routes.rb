@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   post 'boardgames/search', to: 'boardgames#search'
   namespace :api do
     namespace :v1 do
-      resources :boardgames
+      resources :events
     end
   end
   resources :events, only: [:index, :show, :create, :update, :new, :edit] do

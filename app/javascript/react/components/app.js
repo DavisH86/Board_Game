@@ -1,6 +1,6 @@
 import React from 'react';
 import 'babel-polyfill';
-import BoardgameContainer from './BoardgameContainer';
+import EventContainer from './EventContainer';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
  const App = (props) => {
@@ -9,7 +9,7 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
   <h1>hit it</h1>
 
     <Router history={browserHistory}>
-      <Route path='/' component={BoardgameContainer} />
+      <Route path='/events/:id' component={EventContainer} />
 
     </Router>
 </div>
