@@ -23,7 +23,9 @@
 
   <div class="control-group column 3 ">
     <%= f.label :boardgame, "Boardgames:"%>
-    <%= f.collection_select('boardgame_ids', Boardgame.all, :id, :title, prompt: true)  %>
+    <%= f.collection_check_boxes(:boardgame_ids, Boardgame.all, :id, :title, {multiple: true })  %>
+    <!-- <%= f.collection_select(:boardgame_ids, Boardgame.all, :id, :title, {}, {multiple: true}) %> -->
+    <!-- f.collection_select('boardgame_ids', Boardgame.all, :id, :title, prompt: true)   -->
   </div><br>
 
 

@@ -1,13 +1,17 @@
 <h2><%= "Event: #{@event.name}" %></h2>
 <%= "Description: #{@event.description}" %><br>
 <%= "Location: #{@event.location}" %><br>
-<% @boardgames.each do |b| %>
-  <%= "Board Game: #{b.title}" %>
-<% end %><br>
 
-<h3><%= "Supervising:" %></h3>
+<h3>Boardgames:</h3>
+<% @boardgames.each do |b| %>
+  <ul>
+    <li><%= link_to b.title, boardgame_path(b.id) %></li>
+  </ul>
+<% end %>
+
+<h3><%= "Organized by:" %></h3>
 <ul>
-  <li><%= "#{@event.supervisor.first_name} #{@event.supervisor.last_name}" %></li>
+  <li><%= "#{@event.organizer.first_name} #{@event.organizer.last_name}" %></li>
 </ul>
 
 <h3><%= "Members Attending" %></h3>
@@ -28,7 +32,7 @@
 
 <%= button_to button_text, { action: "join", id: @event.id }, {method: :patch, disabled: disable } %>
 <hr>
-<% if current_user == @event.supervisor %>
+<% if current_user == @event.organizer %>
 <li><%= link_to "Edit", edit_event_path(@event) %></li>
 <% end %>
 <%= link_to "Back", events_path %>

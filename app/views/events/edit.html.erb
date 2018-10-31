@@ -23,7 +23,7 @@
 
   <div class="control-group">
     <%= f.label :boardgame, "Boardgames:"%>
-    <%= f.collection_select(:boardgame_ids, Boardgame.all, :id, :title, {}, {multiple: true})  %>
+    <%= f.collection_check_boxes(:boardgame_ids, Boardgame.all, :id, :title, {multiple: true })  %>
   </div><br>
 
   <div class="action">

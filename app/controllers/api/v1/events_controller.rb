@@ -5,10 +5,7 @@ class EventsController < ApplicationController
 
     @events = Event.all
     @boardgames =Boardgame.all
-  end
-
-  def new
-    @event = Event.new
+    render json: @events
   end
 
   def create
@@ -29,6 +26,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @boardgames = @event.boardgames
+    render json: @event
   end
 
   def edit
@@ -53,6 +51,7 @@ class EventsController < ApplicationController
     else
       render :show
     end
+    render json: @event
   end
 
   private

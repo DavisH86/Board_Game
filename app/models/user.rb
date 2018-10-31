@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  mount_uploader :profile_photo, ProfilePhotoUploader
+
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :user_name, presence: true
@@ -15,7 +17,7 @@ class User < ApplicationRecord
   has_and_belongs_to_many :groups
 
   has_many :boardgames, through: :events
-  has_many :events, foreign_key: "supervisor_id"
+  has_many :events, foreign_key: "organizer_id"
 
   def full_name
     `#{first_name} #{last_name}`

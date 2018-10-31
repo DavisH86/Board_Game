@@ -4,8 +4,11 @@ class BoardgamesController < ApplicationController
   end
 
   def search
-    # @boardgames = Boardgame.where(title: params[:boardgame][:title])
-    @boardgames = Boardgame.where('title ILIKE?', "%#{params[:title]}%")
+    if params[:title] == ""
+      @boardgames = []
+    else
+      @boardgames = Boardgame.where('title ILIKE?', "%#{params[:title]}%")
+    end
   end
 
   def new

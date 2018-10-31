@@ -1,22 +1,19 @@
 <h1>Boardgame Index</h1>
 
-
-<!-- <%= form_for(:boardgame, {method: :get,  url: search_boardgames_path }) do |f|%>
-  <div class="field column 2">
-  <%= f.text_field :title, placeholder: "Enter search here..." %>
-  <%= f.submit 'Search' %>
-  </div>
-<% end %> -->
-
+<div class="field column large-3 small-3">
 <%= form_tag(search_boardgames_path, method: :get) do |f|%>
-  <div class="field column 2">
   <%= text_field_tag :title %>
   <%= submit_tag 'Search' %>
-  </div>
 <% end %>
+</div>
 
-<%= link_to "Add New Board Game", new_boardgame_path %> |
-<%= link_to "Group Page", groups_path %>
+<!-- <button><a href="/boardgames/new">New Board Game</button> -->
+<div>
+  <%= link_to '<button type="button">New Board Game</button>'.html_safe, new_boardgame_path %>
+</div>
+<div>
+  <%= link_to "Group Page", groups_path %>
+</div>
 
 <table>
   <thead>
