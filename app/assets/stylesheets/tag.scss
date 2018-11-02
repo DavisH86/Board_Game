@@ -1,5 +1,5 @@
 body {
-  background-image: url('./images/caton.jpg');
+  background-image: asset_helper('caton.jpg');
   background-repeat: repeat;
   background-size: cover;
 }
