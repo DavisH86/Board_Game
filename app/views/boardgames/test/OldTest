@@ -16,3 +16,6 @@
     </div>
   </ul>
 <% end %>
+
+
+<%= select_date Date.today, prefix: :start_date %>

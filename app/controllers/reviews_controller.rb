@@ -1,17 +1,18 @@
 class ReviewsController < ApplicationController
 
   def new
-   @event = Event.find(params[:event_id])
-   @review = Review.new
- end
+    @boardgame = Boardgame.find(params[:boardgame_id])
+    @review = Review.new
+  end
 
  def create
-   @event = Event.find(params[:event_id])
-   @review = @product.reviews.build(review_params)
-   @review.user = current_user
-
+   @boardgame = Boardgame.find(params[:boardgame_id])
+   @review = Review.new(review_params)
+   @review.boardgame = @boardgame
+   @review.user_id = current_user.id
+   # @review = @boardgame.reviews.build(review_params)
    if @review.save
-     redirect_to @event
+     redirect_to @boardgame
    else
      render :new
    end

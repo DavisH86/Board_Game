@@ -1,11 +1,11 @@
-class EventsController < ApplicationController
-  before_action :authenticate_user!
+class Api::V1::EventsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
 
     @events = Event.all
     @boardgames =Boardgame.all
-    render json: @events
+    render json: @events.all
   end
 
   def create

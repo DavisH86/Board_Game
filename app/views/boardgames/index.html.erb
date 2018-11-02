@@ -1,10 +1,10 @@
-<h1>Boardgame Index</h1>
-
-<div class="field column large-3 small-3">
-<%= form_tag(search_boardgames_path, method: :get) do |f|%>
-  <%= text_field_tag :title %>
-  <%= submit_tag 'Search' %>
-<% end %>
+<div class="searchbar">
+  <div class="field column large-3 small-3">
+  <%= form_tag(search_boardgames_path, method: :get) do |f|%>
+    <%= text_field_tag :title %>
+    <%= submit_tag 'Search' %>
+  <% end %>
+  </div>
 </div>
 
 <!-- <button><a href="/boardgames/new">New Board Game</button> -->
@@ -15,7 +15,7 @@
   <%= link_to "Group Page", groups_path %>
 </div>
 
-<table>
+<table class="boardgametable">
   <thead>
     <tr>
       <th>Title</th>

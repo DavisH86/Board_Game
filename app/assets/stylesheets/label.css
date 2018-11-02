@@ -1,0 +1,43 @@
+.description {
+  border: 3px solid brown;
+  background-color: #f2dabc;
+  font-size: 20px;
+  padding-top: 2rem;
+  padding-bottom:2rem;
+  margin-bottom: 2rem;
+}
+.newLabel {
+  background-color: #f2dabc;
+  color: white;
+  font-size: 20px;
+}
+.label {
+  color: #ffffff;
+  display: grid;
+  text-shadow: 2px 2px #000000;
+}
+
+.bodyText {
+  background-color: #847b6f;
+  color: white;
+
+}
+
+.log_in label {
+  color: white;
+  text-shadow:
+    1px 1px #000000,
+    1px -1px #000000,
+    -1px 1px #000000,
+    -1px -1px #000000;
+  font-size: 2rem;
+}
+#actions {
+   color: black;
+}
+
+.sign_up {
+  margin-left: 2rem;
+  color: #ffffff;
+  font-size: 4rem;
+  text-shadow: 2px 2px #000000;

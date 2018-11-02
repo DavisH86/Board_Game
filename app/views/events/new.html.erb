@@ -1,5 +1,6 @@
-<h1>New Event Form</h1>
+<h1 class="newTitle">New Event Form</h1>
 
+<div class="forms">
 <%= form_for(@event) do |f| %>
 
   <% @event.errors.full_messages.each do |message| %>
@@ -7,31 +8,48 @@
   <% end %>
 
   <div class="field column 3" >
-    <%= f.label :name, "Name:" %>
-    <%= f.text_field :name %>
+    <div class="newLabel">
+      <%= f.label :name, "Name:" %>
+      <%= f.text_field :name %>
+    </div>
   </div><br>
 
   <div class="field column 3">
-    <%= f.label :location, "Location:" %>
-    <%= f.text_field :location %>
+    <div class="newLabel">
+      <%= f.label :location, "Location:" %>
+      <%= f.text_field :location %>
+    </div>
   </div><br>
 
   <div class="field column 3">
-    <%= f.label :description, "Description:"%>
-    <%= f.text_field :description %>
+    <div class="newLabel">
+      <%= f.label :description, "Description:"%>
+      <%= f.text_field :description %>
+    </div>
   </div><br>
 
-  <div class="control-group column 3 ">
-    <%= f.label :boardgame, "Boardgames:"%>
-    <%= f.collection_check_boxes(:boardgame_ids, Boardgame.all, :id, :title, {multiple: true })  %>
-    <!-- <%= f.collection_select(:boardgame_ids, Boardgame.all, :id, :title, {}, {multiple: true}) %> -->
-    <!-- f.collection_select('boardgame_ids', Boardgame.all, :id, :title, prompt: true)   -->
+  <div class="field column 3">
+    <div class="newLabel">
+      <%= f.label :eventdate, "Event Date:"%>
+      <%= f.datetime_field  :eventdate %>
+    </div>
+  </div><br>
+
+  <div class="control-group column 3">
+    <div class="newLabel">
+      <%= f.label :boardgame, "Boardgames:"%>
+        <div class="boardgames">
+          <%= f.collection_check_boxes(:boardgame_ids, Boardgame.all, :id, :title, {multiple: true })  %>
+          <!-- <%= f.collection_select(:boardgame_ids, Boardgame.all, :id, :title, {}, {multiple: true}) %> -->
+          <!-- f.collection_select('boardgame_ids', Boardgame.all, :id, :title, prompt: true)   -->
+        </div>
+    </div>
   </div><br>
 
 
-  <div class="field">
+  <div class="action">
     <%= f.submit "Add Event"%>
   </div><br>
 <% end %>
-
+</div>
 <%= link_to "Back", events_path %>

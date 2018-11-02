@@ -3,6 +3,8 @@
 <head>
   <title>Boardgames</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Notable" rel="stylesheet">
   <%= stylesheet_link_tag 'application', media: 'all' %>
 
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -30,7 +32,7 @@
       </ul>
     </section>
   </nav>
-
+<h1 class="gameNight">Board Games Night</h1>
   <%- flash.each do |key, value| -%>
     <div class="flash flash-<%= key %>">
       <%= value %>
@@ -39,7 +41,7 @@
 
   <%= yield %>
 
-  
+
 
   <%= javascript_include_tag 'application' %>
 

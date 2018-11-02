@@ -1,4 +1,6 @@
 class BoardgamesController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @boardgames = Boardgame.all
   end
@@ -17,6 +19,7 @@ class BoardgamesController < ApplicationController
 
   def show
     @boardgame = Boardgame.find(params[:id])
+    @reviews = @boardgame.reviews
   end
 
   def create

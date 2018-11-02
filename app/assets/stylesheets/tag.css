@@ -1,0 +1,8 @@
+body {
+  background-image: url('./images/caton.jpg');
+  background-repeat: repeat;
+  background-size: cover;
+}
+.flash{
+  color: white;
+}

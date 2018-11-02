@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!
+before_action :authenticate_user!, except: [:index, :show]
 
   def index
 
@@ -57,6 +57,6 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:name, :description, :location, boardgame_ids: [])
+    params.require(:event).permit(:name, :description, :location, :eventdate, boardgame_ids: [])
   end
 end

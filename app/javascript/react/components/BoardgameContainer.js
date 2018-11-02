@@ -1,5 +1,7 @@
 
 import React, { Component } from 'react';
+
+import Scoreboard from './Scoreboard';
 // import BeerTile from '../components/BeerTile'
 
 class BoardgameContainer extends Component {
@@ -28,7 +30,7 @@ class BoardgameContainer extends Component {
     return(
       <div>
         <h1>Here are a bunch Boardgames</h1>
-        
+
       </div>
     )
   }
