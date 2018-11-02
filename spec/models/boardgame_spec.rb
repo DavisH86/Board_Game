@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Boardgame, type: :model do
   describe "Associations" do
-    it { should have_many(:events)}
+    it { should have_and_belong_to_many(:events)}
     it { should have_many(:users).through(:events)}
   end
   describe "Validations" do

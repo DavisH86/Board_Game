@@ -1,0 +1,36 @@
+.gameNight {
+  font-size: 8rem;
+  font-family: 'Fascinate Inline', cursive;
+  color: #A85826;
+  text-align: center;
+  text-shadow: 2px 2px #000000
+}
+
+.indexTitle {
+  font-family: 'Notable', sans-serif;
+  color: #A85826;
+  text-align: center;
+  text-shadow: 2px 2px #000000
+}
+
+.newTitle {
+  font-family: 'Notable', sans-serif;
+  color: #A85826;
+  text-align: left;
+  text-shadow: 2px 2px #000000
+}
+
+.showTitle {
+  font-family: 'Notable', sans-serif;
+  color: #A85826;
+  text-align: left;
+  text-shadow: 2px 2px #000000
+}
+
+.indexLinks {
+  text-align: center;
+  background-color: black;
+  padding: 2px;
+  margin: 2px;
+  color: brown;
+}

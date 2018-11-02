@@ -1,24 +1,26 @@
-<h1>Board Games Night</h1>
-<p>
+<p class="small-6 center">
   If you're looking for a time to relax and have fun after a long day,
   use this app to bring together innovation crowd for an evening of board games and great times.
   Don't know how to play? New players are welcome to meet and learn new
   games for the first time.
 </p>
 
-<h1>Event Index</h1>
-
-
+<h1 class="indexTitle">Event Index</h1>
+<div class="indexLinks">
 <%= link_to "Add New Event", new_event_path %> |
 <%= link_to "Group Page", groups_path %> |
 <%= link_to "Board Games", boardgames_path %>
-
-<table>
+</div>
+<table class="indextable">
   <thead>
     <tr>
       <th>Title</th>
+      <th>Posted</th>
+      <th>Date</th>
+      <th>Organizer</th>
       <th colspan="3"></th>
     </tr>
+
   </thead>
 
   <tbody>
@@ -30,6 +32,14 @@
       <td>
         <%= "Posted on: #{event.created_at.strftime("%B %d %Y")}" %>
       </td>
+      <td>
+        <% if event.eventdate != nil %>
+          <%= "Date: #{event.eventdate.strftime("%m/%d/%Y at %I:%M%p")}"%>
+        <% end %>
+      </td>
+      <td>
+        <%= "Organized by: #{event.organizer.first_name} #{event.organizer.last_name}" %>
+      </id>
     </tr>
     <% end %>
 

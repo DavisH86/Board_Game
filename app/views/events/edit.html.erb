@@ -1,34 +1,52 @@
-<h1>Edit Event Form</h1>
-
+<h1 class="newTitle">Edit Event Form</h1>
+<div class="forms">
 <%= form_for(@event) do |f| %>
 
   <% @event.errors.full_messages.each do |message| %>
     <li><%= message %></li>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name, "Name:" %>
-    <%= f.text_field :name %>
+  <div class="field column">
+    <div class="newLabel">
+      <%= f.label :name, "Name:" %>
+      <%= f.text_field :name %>
+    </div>
   </div><br>
 
-  <div class="field">
-    <%= f.label :location, "Location:" %>
-    <%= f.text_field :location %>
+  <div class="field column">
+    <div class="newLabel">
+      <%= f.label :location, "Location:" %>
+      <%= f.text_field :location %>
+    </div>
   </div><br>
 
-  <div class="field">
-    <%= f.label :description, "Description:"%>
-    <%= f.text_field :description %>
+  <div class="field column">
+    <div class="newLabel">
+      <%= f.label :description, "Description:"%>
+      <%= f.text_field :description %>
+    </div>
   </div><br>
 
-  <div class="control-group">
-    <%= f.label :boardgame, "Boardgames:"%>
+  <div class="field column">
+    <div class="newLabel">
+      <%= f.label :eventdate, "Event Date:"%>
+      <%= f.datetime_field  :eventdate %>
+    </div>
+  </div><br>
+
+  <div class="control-group column">
+    <div class="newLabel">
+      <%= f.label :boardgame, "Boardgames:"%>
+      <div class="boardgames">
     <%= f.collection_check_boxes(:boardgame_ids, Boardgame.all, :id, :title, {multiple: true })  %>
+    </div>
+  </div>
   </div><br>
 
-  <div class="action">
+  <div class="action column">
     <%= f.submit "Save Change"%>
   </div><br>
 <% end %>
+</div>
 
 <%= link_to "Back", events_path %>

@@ -1,9 +1,8 @@
-
-<h2>Log in</h2>
+<h2 class="sign_up">Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="log-in">
-    <div class="small-6 medium-6 large-6 columns">
+  <div>
+    <div class="small-6 medium-6 large-6 columns log-in">
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div>

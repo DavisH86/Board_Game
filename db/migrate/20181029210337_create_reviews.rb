@@ -6,7 +6,8 @@ class CreateReviews < ActiveRecord::Migration[5.2]
       t.belongs_to :boardgame
       t.belongs_to :event
       t.belongs_to :group
-      
+      t.belongs_to :user
+
       t.timestamps null: false
     end
   end

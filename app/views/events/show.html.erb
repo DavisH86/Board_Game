@@ -1,12 +1,19 @@
-<h2><%= "Event: #{@event.name}" %></h2>
-<%= "Description: #{@event.description}" %><br>
-<%= "Location: #{@event.location}" %><br>
-
+<h2 class="showTitle"><%= "Event: #{@event.name}" %></h2>
+<div class="description">
+  <%= "Description: #{@event.description}" %><br>
+  <%= "Location: #{@event.location}" %><br>
+</div>
+<div class="newLabel">
 <h3>Boardgames:</h3>
 <% @boardgames.each do |b| %>
   <ul>
     <li><%= link_to b.title, boardgame_path(b.id) %></li>
   </ul>
+<% end %>
+
+<h3>When:</h3>
+<% if @event.eventdate != nil %>
+  <%= "Date: #{@event.eventdate.strftime("%m/%d/%Y at %I:%M%p")}"%>
 <% end %>
 
 <h3><%= "Organized by:" %></h3>
@@ -20,11 +27,11 @@
   <ul>
     <li><%= "User: #{user.first_name} #{user.last_name}" %></li>
   </ul>
-  <% if user.id == current_user.id %>
+  <% if user == current_user %>
     <% disable = true %>
   <% end %>
 <% end %>
-
+<div>
 <% button_text = 'Sign up' %>
 <% if disable == true %>
   <% button_text = "See you at the event" %>

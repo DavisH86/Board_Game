@@ -1,8 +1,23 @@
-<h2><%= "Boardgame: #{@boardgame.title}" %></h2>
-<%= "Description: #{@boardgame.description}" %><br>
+<h2 class="showTitle"><%= "Boardgame: #{@boardgame.title}" %></h2>
+<div class="description">
+  <%= "Description: #{@boardgame.description}" %><br>
+</div>
+<div class="bodyText">
+<h3 class="newLabel"><%= "Reviews:" %></h3>
+<% if @reviews.nil? != true %>
+  <% @reviews.each do |review| %>
 
-<h3><%= "Reviews:" %></h3>
-
+    <%= "Score: #{review.rating}"%>
+    <br>
+    <%= "User: #{review.user.first_name}, #{review.body}"%>
+    <br>
+    <%= "Created on: #{review.created_at.strftime("%B %d %Y")}" %>
+    <br>
+  <% end %>
+</div>
+    <br>
+    <% end %>
+  <%= link_to "Add a Review", new_boardgame_review_path(@boardgame) %>
 <hr>
 <%=link_to "Board Games", boardgames_path %>|
 <%= link_to "Group Page", groups_path %>
