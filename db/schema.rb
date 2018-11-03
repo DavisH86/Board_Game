@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_02_145818) do
+ActiveRecord::Schema.define(version: 2018_11_02_200115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,6 +91,20 @@ ActiveRecord::Schema.define(version: 2018_11_02_145818) do
     t.index ["event_id"], name: "index_reviews_on_event_id"
     t.index ["group_id"], name: "index_reviews_on_group_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "rounds", force: :cascade do |t|
+    t.datetime "date", null: false
+    t.bigint "boardgame_id", null: false
+    t.index ["boardgame_id"], name: "index_rounds_on_boardgame_id"
+  end
+
+  create_table "rounds_scores", force: :cascade do |t|
+    t.integer "score", null: false
+    t.bigint "round_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["round_id"], name: "index_rounds_scores_on_round_id"
+    t.index ["user_id"], name: "index_rounds_scores_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
