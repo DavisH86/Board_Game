@@ -1,17 +1,17 @@
 <h1 class="Title">Search Results</h1>
 <br >
-<% if @boardgames.empty? %>
+<% if @events.empty? %>
   <div class="searchResult">
     <p>No results found.</p>
 
 <% else %>
 
   <div class="searchResult">
-    <p><%= "#{@boardgames.count} result(s) found." %></p>
+    <p><%= "#{@events.count} result(s) found." %></p>
     <ul class="unstyled">
-      <% @boardgames.each do |boardgame| %>
+      <% @events.each do |event| %>
       <li>
-        <%= link_to boardgame.title, boardgame %>
+        <%= link_to event.name, event %>
       </li>
       <% end %>
     </ul>

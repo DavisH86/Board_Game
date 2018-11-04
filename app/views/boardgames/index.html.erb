@@ -1,16 +1,25 @@
+
+
 <div class="searchbar">
   <div class="field column large-3 small-3">
-  <%= form_tag(search_boardgames_path, method: :get) do |f|%>
-    <%= text_field_tag :title %>
-    <%= submit_tag 'Search' %>
+  <%= form_for(:event, {url: search_events_path, method: :get}) do |f|%>
+    <%= f.text_field :name, placeholder: "Search Events.." %>
+    <%= f.submit 'Search' %>
+  <% end %>
+  </div>
+</div>
+
+<div class="searchbar">
+  <div class="field column large-3 small-3">
+  <%= form_for(:boardgame, {method: :get, url: search_boardgames_path}) do |f|%>
+    <%= f.text_field :title, placeholder: "Search Boardgames.." %>
+    <%= f.submit 'Search' %>
   <% end %>
   </div>
 </div>
 
 <!-- <button><a href="/boardgames/new">New Board Game</button> -->
-<div>
-  <%= link_to '<button type="button">New Board Game</button>'.html_safe, new_boardgame_path %>
-</div>
+
 <div>
   <%= link_to "Group Page", groups_path %>
 </div>
@@ -35,6 +44,9 @@
     </tr>
     <% end %>
 
-
   </tbody>
 </table>
+
+<div>
+  <%= link_to '<button type="button">New Board Game</button>'.html_safe, new_boardgame_path %>
+</div>

@@ -20,6 +20,17 @@
       </li>
     </ul>
 
+    <%= form_tag(search_boardgames_path, method: :get) do |f|%>
+      <ul >
+        <div>
+          <li class="small-3 medium-3 Large-3 columns"><%= text_field_tag :title %></li>
+        </div>
+        <div>
+          <li class="small-3 medium-3 Large-3 columns"><%= submit_tag 'Search' %></li>
+        </div>
+      </ul>
+    <% end %>
+
     <section class="top-bar-section">
       <ul class="right">
         <%- if current_user -%>

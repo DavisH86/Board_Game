@@ -1,16 +1,40 @@
 .description {
   border: 3px solid brown;
+  border-radius: 25px;
   background-color: #f2dabc;
   font-size: 20px;
-  padding-top: 2rem;
-  padding-bottom:2rem;
-  margin-bottom: 2rem;
+  padding: 10px;
+  margin: 2rem;
 }
+
 .newLabel {
+  margin: 2rem;
   background-color: #f2dabc;
-  color: white;
+  border-radius: 25px;
+  color: #3a342f;
   font-size: 20px;
+  padding: 10px;
 }
+
+.searchResult {
+  margin: auto;
+  font-size: 2rem;
+  color: black;
+  border: 3px solid brown;
+  border-radius: 25px;
+  background-color: white;
+  width: 60%;
+}
+
+.searchResult p {
+  font-size: 2rem;
+}
+
+.newLabel label {
+  color: black;
+  font-size: 1rem;
+}
+
 .label {
   color: #ffffff;
   display: grid;
@@ -20,7 +44,10 @@
 .bodyText {
   background-color: #847b6f;
   color: white;
-
+  border-radius: 25px;
+  border: 3px solid brown;
+  padding: 10px;
+  margin: 2rem;
 }
 
 .log_in label {
@@ -31,14 +58,4 @@
     -1px 1px #000000,
     -1px -1px #000000;
   font-size: 2rem;
-}
-#actions {
-   color: black;
-}
-
-.sign_up {
-  margin-left: 2rem;
-  color: #ffffff;
-  font-size: 4rem;
-  text-shadow: 2px 2px #000000;
 }

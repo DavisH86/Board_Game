@@ -1,9 +1,24 @@
 body {
-  background-image: image-url('caton.jpg');
+  // background-image: image-url('caton.jpg');
   background-repeat: repeat;
   background-size: cover;
+  // background-blend-mode: screen;
 }
 
 .flash{
   color: white;
+}
+
+.message {
+  background-color: #a8a59a;
+  border-radius: 25px;
+  margin: auto;
+  width: 60%;
+  border: 3px solid brown;
+  padding: 10px;
+}
+
+.remember_me {
+  background-color: #a8a59a;
+  border: 3px solid brown;
 }

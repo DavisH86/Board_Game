@@ -9,7 +9,7 @@ class BoardgamesController < ApplicationController
     if params[:title] == ""
       @boardgames = []
     else
-      @boardgames = Boardgame.where('title ILIKE?', "%#{params[:title]}%")
+      @boardgames = Boardgame.where('title ILIKE?', "%#{boardgame_params[:title]}%")
     end
   end
 

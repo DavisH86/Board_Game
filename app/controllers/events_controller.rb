@@ -11,11 +11,20 @@ before_action :authenticate_user!, except: [:index, :show]
     @event = Event.new
   end
 
+  def search
+    if params[:name] == ""
+      @events = []
+    else
+      @events = Event.where('name ILIKE?', "%#{event_params[:name]}%")
+    end
+  end
+
   def create
     @event = Event.new(event_params)
     @event.boardgames = Boardgame.where(id: params[:event][:boardgame_ids])
     @event.organizer = current_user
     @boardgames = @event.boardgames
+    @score = Score.new
 
     if @event.save
       flash[:notice] = "Event added successfully."
