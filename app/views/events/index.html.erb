@@ -5,7 +5,14 @@
   games for the first time.
 </p>
 
-<h1 class="indexTitle">Event Index</h1>
+<div>
+  <%= form_for(:event, {url: search_events_path, method: :get}) do |f|%>
+    <p class="small-9 medium-9 Large-9 columns"><%= f.text_field :name, placeholder: "Search Events.." %></p>
+    <p class="small-3 medium-3 Large-3 columns"><%= f.submit 'Search' %></p>
+  <% end %>
+</div>
+
+<h1 class="Title">Event Index</h1>
 <div class="indexLinks">
 <%= link_to "Add New Event", new_event_path %> |
 <%= link_to "Group Page", groups_path %> |

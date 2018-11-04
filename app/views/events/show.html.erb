@@ -1,4 +1,4 @@
-<h2 class="showTitle"><%= "Event: #{@event.name}" %></h2>
+<h2 class="Title"><%= "Event: #{@event.name}" %></h2>
 <div class="description">
   <%= "Description: #{@event.description}" %><br>
   <%= "Location: #{@event.location}" %><br>
@@ -9,6 +9,10 @@
   <ul>
     <li><%= link_to b.title, boardgame_path(b.id) %></li>
   </ul>
+<% end %>
+
+<% if current_user == @event.organizer %>
+  <li><%= link_to '<button type="button">Add Board Game</button>'.html_safe, edit_event_path(@event) %></li>
 <% end %>
 
 <h3>When:</h3>
@@ -31,7 +35,7 @@
     <% disable = true %>
   <% end %>
 <% end %>
-<div>
+
 <% button_text = 'Sign up' %>
 <% if disable == true %>
   <% button_text = "See you at the event" %>
@@ -39,7 +43,35 @@
 
 <%= button_to button_text, { action: "join", id: @event.id }, {method: :patch, disabled: disable } %>
 <hr>
+
 <% if current_user == @event.organizer %>
-<li><%= link_to "Edit", edit_event_path(@event) %></li>
+  <%= link_to '<button type="button">Edit Page</button>'.html_safe, edit_event_path(@event) %>
 <% end %>
-<%= link_to "Back", events_path %>
+
+<% @boardgames.each do |b| %>
+  <table>
+    <thead>
+      <tr>
+        <th><%= b.title %></th>
+        <th>Win</th>
+        <th>Lose</th>
+      </tr>
+      <tr>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <%= form_for(@boardgame) do |f| %>
+            <%= f.collection_select :user_ids, @event.user, :id, :first_name %>
+            <div class="actions">
+              <%= f.submit %>
+            </div>
+          <% end %>
+        </td>
+      </tr>
+    </thead>
+
+  </tabel>
+<% end %>
+
+<%= link_to '<button type="button">Back</button>'.html_safe, events_path %>

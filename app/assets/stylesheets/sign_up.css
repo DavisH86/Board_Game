@@ -1,0 +1,15 @@
+.newForm {
+  margin: 2rem;
+  background-color: #f2dabc;
+  border-radius: 25px;
+  color: #3a342f;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.sign_up {
+  margin-left: 2rem;
+  color: #ffffff;
+  font-size: 4rem;
+  text-shadow: 2px 2px #000000;
+}

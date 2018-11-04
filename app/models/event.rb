@@ -6,5 +6,7 @@ class Event < ApplicationRecord
   has_and_belongs_to_many :boardgames
   has_and_belongs_to_many :users
 
+  has_many :scores
+  
   belongs_to :organizer, class_name: "User"
 end

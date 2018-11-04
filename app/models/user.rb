@@ -19,7 +19,10 @@ class User < ApplicationRecord
   has_many :boardgames, through: :events
   has_many :events, foreign_key: "organizer_id"
 
+  has_many :scores
+
   has_many :reviews
+  
   def full_name
     `#{first_name} #{last_name}`
   end

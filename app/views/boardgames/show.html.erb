@@ -1,9 +1,10 @@
-<h2 class="showTitle"><%= "Boardgame: #{@boardgame.title}" %></h2>
+<h2 class="Title"><%= "Boardgame: #{@boardgame.title}" %></h2>
 <div class="description">
   <%= "Description: #{@boardgame.description}" %><br>
 </div>
+
 <div class="bodyText">
-<h3 class="newLabel"><%= "Reviews:" %></h3>
+<h3 ><%= "Reviews:" %></h3>
 <% if @reviews.nil? != true %>
   <% @reviews.each do |review| %>
 
