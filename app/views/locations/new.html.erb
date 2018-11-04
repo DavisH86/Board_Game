@@ -1,0 +1,29 @@
+<h1 class="newTitle">New Location Form</h1>
+<div class="forms">
+<%= form_for(@location) do |f| %>
+
+  <% @location.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+
+  <div class="field column">
+    <div class="newLabel">
+    <%= f.label :name, "Name Location:" %>
+    <%= f.text_field :name %>
+    </div>
+  </div><br>
+
+  <div class="field column">
+    <div class="newLabel">
+    <%= f.label :address, "Address:"%>
+    <%= f.text_field :address %>
+    </div>
+  </div><br>
+
+  <div class="field column">
+    <%= f.submit "Add Location"%>
+  </div><br>
+<% end %>
+</div>
+
+<%= link_to "Back", events_path %>

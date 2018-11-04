@@ -7,11 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Event.create([
-  { name: "Hat", location: "Downtown, Boston", description: "Money makes the world go round.  We need to prepare by buying all resources we can!", user_id: nil, organizer_id: 1 },
-  { name: "Spy Night", location: "Downtown", description: "It's time to battle!!! ...With words. Lets have fun.", user_id: nil, organizer_id: 2 },
-  { name: "Battleship", location: "FoodCourt", description: "Lets try something old school. Try to sink my Battleship!" , user_id: nil, organizer_id: 1 },
-  { name: "I spy", location: "Back Alley", description: "It's time for another mission Red spies. Lets get those Blues!!!", user_id: nil, organizer_id: 3},
-  { name: "Pictionary", location: "First Floor", description: "Let's do something with a little flare with pictures", user_id: nil, organizer_id: 2 }
+  { name: "Hat", location_id: 1, description: "Money makes the world go round.  We need to prepare by buying all resources we can!", user_id: nil, organizer_id: 1, eventdate: DateTime.strptime("08/01/2018 17:00", "%m/%d/%Y %H:%M")},
+  { name: "Spy Night", location_id: 2, description: "It's time to battle!!! ...With words. Lets have fun.", user_id: nil, organizer_id: 2, eventdate: DateTime.strptime("11/09/2018 17:00", "%m/%d/%Y %H:%M") },
+  { name: "Battleship", location_id: 3, description: "Lets try something old school. Try to sink my Battleship!" , user_id: nil, organizer_id: 1, eventdate: DateTime.strptime("11/01/2018 17:00", "%m/%d/%Y %H:%M") },
+  { name: "I spy", location_id: 2, description: "It's time for another mission Red spies. Lets get those Blues!!!", user_id: nil, organizer_id: 3, eventdate: DateTime.strptime("09/01/2018 17:00", "%m/%d/%Y %H:%M") },
+  { name: "Pictionary", location_id: 2, description: "Let's do something with a little flare with pictures", user_id: nil, organizer_id: 2, eventdate: DateTime.strptime("11/16/2018 17:00", "%m/%d/%Y %H:%M") }
   ]);
 
 Boardgame.create([
@@ -28,4 +28,10 @@ User.create([
   {  user_name: "Davismeme", first_name: "davis", last_name: "ma", email: "davishma@gmail.com", encrypted_password: "light1", password: "light1", profile_photo:nil },
   { user_name: "Metmee", first_name: "David", last_name: "meme", email: "dmate@gmail.com", encrypted_password: "Mememe", password: "Mememe", profile_photo:nil },
   { user_name: "Buckle", first_name: "John", last_name: "Art", email: "John@gmail.com",  encrypted_password: "Buckle", password: "Buckle", profile_photo:nil }
+  ]);
+
+Location.create([
+  { name: "Lucky Goblin", address: "1456 Hancock Street Quincy, MA 02169"},
+  { name: "Launch Academy", address: "77 Summer St 7th Floor Boston, MA 02111" },
+  { name: "The Corner Mall", address: "417 Washington Street, at Downtown Crossing" }
   ]);

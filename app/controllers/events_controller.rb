@@ -4,11 +4,13 @@ before_action :authenticate_user!, except: [:index, :show]
   def index
 
     @events = Event.all
-    @boardgames =Boardgame.all
+    @boardgames = Boardgame.all
+    @locations = Location.all
   end
 
   def new
     @event = Event.new
+    @users = @event.users
   end
 
   def search
@@ -24,7 +26,9 @@ before_action :authenticate_user!, except: [:index, :show]
     @event.boardgames = Boardgame.where(id: params[:event][:boardgame_ids])
     @event.organizer = current_user
     @boardgames = @event.boardgames
+    @locations = @event.location_id
     @score = Score.new
+
 
     if @event.save
       flash[:notice] = "Event added successfully."
@@ -66,6 +70,6 @@ before_action :authenticate_user!, except: [:index, :show]
 
   private
   def event_params
-    params.require(:event).permit(:name, :description, :location, :eventdate, boardgame_ids: [])
+    params.require(:event).permit(:name, :description, :location_id, :eventdate, boardgame_ids: [])
   end
 end

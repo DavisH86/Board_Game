@@ -1,22 +1,30 @@
+<!-- <li id="search">
+        <form action="" method="get">
+            <input type="text" name="search_text" id="search_text" placeholder="Search"/>
+            <input type="button" name="search_button" id="search_button"></a>
+        </form>
+    </li> -->
 
+    <a class="button dropdown" href="#" data-dropdown="drop1">Dropdown Button </a>
 
-<div class="searchbar">
-  <div class="field column large-3 small-3">
-  <%= form_for(:event, {url: search_events_path, method: :get}) do |f|%>
-    <%= f.text_field :name, placeholder: "Search Events.." %>
-    <%= f.submit 'Search' %>
-  <% end %>
-  </div>
+<div>
+<ul class="f-dropdown" id="drop1" data-dropdown-content="">
+<li><a href="#">Event</a></li>
+<li><a href="#">Location</a></li>
+<li><a href="#">Boardgame</a></li>
+</ul>
 </div>
 
-<div class="searchbar">
-  <div class="field column large-3 small-3">
-  <%= form_for(:boardgame, {method: :get, url: search_boardgames_path}) do |f|%>
-    <%= f.text_field :title, placeholder: "Search Boardgames.." %>
-    <%= f.submit 'Search' %>
-  <% end %>
+<%= form_for(:event, {url: search_events_path, method: :get}) do |f|%>
+  <%= f.text_field :name, placeholder: "Search Events.." %>
+  <%= f.submit 'Search' %>
+
+  <div >
+    <%= f.label :location_id, "Location:" %>
+    <%= f.collection_select('location_id', Location.all, :id, :name, prompt: true) %>
   </div>
-</div>
+<% end %>
+
 
 <!-- <button><a href="/boardgames/new">New Board Game</button> -->
 

@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     resources :boardgames, only: [:index, :new, :create]
   end
 
+  resources :locations, only: [:index, :new, :create, :show]
+
   resources :groups, only: [:index, :show, :create, :update, :new]
 
   resources :boardgames, only: [:index, :show, :create, :update, :new] do

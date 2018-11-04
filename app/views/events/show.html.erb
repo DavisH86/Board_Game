@@ -1,29 +1,33 @@
 <h2 class="Title"><%= "Event: #{@event.name}" %></h2>
 <div class="description">
   <%= "Description: #{@event.description}" %><br>
-  <%= "Location: #{@event.location}" %><br>
+  <%= "Location: #{@event.location.name}, #{@event.location.address}" %><br>
+  <% if current_user == @event.organizer %>
+    <li><%= link_to '<button type="button">Change Location</button>'.html_safe, edit_event_path(@event) %></li>
+  <% end %>
 </div>
+
 <div class="newLabel">
 <h3>Boardgames:</h3>
-<% @boardgames.each do |b| %>
-  <ul>
-    <li><%= link_to b.title, boardgame_path(b.id) %></li>
-  </ul>
-<% end %>
+  <% @boardgames.each do |b| %>
+    <ul>
+      <li><%= link_to b.title, boardgame_path(b.id) %></li>
+    </ul>
+  <% end %>
 
-<% if current_user == @event.organizer %>
-  <li><%= link_to '<button type="button">Add Board Game</button>'.html_safe, edit_event_path(@event) %></li>
-<% end %>
+  <% if current_user == @event.organizer %>
+    <li><%= link_to '<button type="button">Add Board Game</button>'.html_safe, edit_event_path(@event) %></li>
+  <% end %>
 
 <h3>When:</h3>
-<% if @event.eventdate != nil %>
-  <%= "Date: #{@event.eventdate.strftime("%m/%d/%Y at %I:%M%p")}"%>
-<% end %>
+  <% if @event.eventdate != nil %>
+    <%= "Date: #{@event.eventdate.strftime("%m/%d/%Y at %I:%M%p")}"%>
+  <% end %>
 
 <h3><%= "Organized by:" %></h3>
-<ul>
-  <li><%= "#{@event.organizer.first_name} #{@event.organizer.last_name}" %></li>
-</ul>
+  <ul>
+    <li><%= "#{@event.organizer.first_name} #{@event.organizer.last_name}" %></li>
+  </ul>
 
 <h3><%= "Members Attending" %></h3>
 <% disable = false %>
@@ -44,13 +48,10 @@
 <%= button_to button_text, { action: "join", id: @event.id }, {method: :patch, disabled: disable } %>
 <hr>
 
-<% if current_user == @event.organizer %>
-  <%= link_to '<button type="button">Edit Page</button>'.html_safe, edit_event_path(@event) %>
-<% end %>
 
 <% @boardgames.each do |b| %>
   <table>
-    <thead>
+
       <tr>
         <th><%= b.title %></th>
         <th>Win</th>
@@ -60,18 +61,28 @@
         <td></td>
       </tr>
       <tr>
-        <td>
-          <%= form_for(@boardgame) do |f| %>
-            <%= f.collection_select :user_ids, @event.user, :id, :first_name %>
-            <div class="actions">
-              <%= f.submit %>
-            </div>
-          <% end %>
-        </td>
-      </tr>
-    </thead>
 
-  </tabel>
+      </tr>
+      <td>
+      <%= form_for(b) do |f| %>
+        <div>
+          <%= f.label :user, "User:" %>
+          <%= collection_select(:user_ids, :event_id, @event.users, :id, :first_name, prompt: true) %>
+        </div>
+        <td>
+          <div class="actions">
+            <%= f.submit "Sign up" %>
+          </div>
+        </td>
+      </td>
+      <% end %>
+  </table>
 <% end %>
 
+<% if current_user == @event.organizer %>
+  <%= link_to '<button type="button">Edit Page</button>'.html_safe, edit_event_path(@event) %>
+<% end %>
+
+<div>
 <%= link_to '<button type="button">Back</button>'.html_safe, events_path %>
+</div>

@@ -13,10 +13,10 @@
     </div>
   </div><br>
 
-  <div class="field column">
+  <div class="field column 3">
     <div class="newLabel">
-      <%= f.label :location, "Location:" %>
-      <%= f.text_field :location %>
+      <%= f.label :location_id, "Location:" %>
+      <%= f.collection_select('location_id', Location.all, :id, :name, prompt: true) %>
     </div>
   </div><br>
 
