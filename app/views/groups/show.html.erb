@@ -1,5 +1,7 @@
-<h2><%= "Group: #{@group.name}" %></h2>
-<%= "Description: #{@group.description}" %><br>
+<h2 class="Title"><%= "Group: #{@group.name}" %></h2>
+
+<div class="description">
+  <%= "Description: #{@group.description}" %><br>
 
 <h3><%= "Members:" %></h3>
 
@@ -18,4 +20,6 @@
 
 <%= button_to button_text, { action: "update", id: @group.id }, {method: :patch, disabled: disable } %>
 <hr>
-<%= link_to "Group Page", groups_path %>
+<%= link_to '<button type="button">Group Page</button>'.html_safe, groups_path %>
+
+</div>

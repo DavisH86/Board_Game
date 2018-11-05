@@ -23,10 +23,6 @@ Rails.application.routes.draw do
     resources :boardgames, only: [:index, :new, :create]
   end
 
-  resources :locations, only: [:index, :new, :create, :show]
-
-  resources :groups, only: [:index, :show, :create, :update, :new]
-
   resources :boardgames, only: [:index, :show, :create, :update, :new] do
     resources :reviews, only: [:new, :create]
     collection do
@@ -34,6 +30,9 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :locations, only: [:index, :new, :create, :show]
+  resources :groups, only: [:index, :show, :create, :update, :new]
+  resources :users, only: [:show]
   resources :scores
   # get '/boardgames', to: 'homes#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

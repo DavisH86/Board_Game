@@ -1,49 +1,39 @@
 <h1 class="newTitle">Edit Event Form</h1>
-<div class="forms">
+<div class="forms newLabel">
 <%= form_for(@event) do |f| %>
 
   <% @event.errors.full_messages.each do |message| %>
     <li><%= message %></li>
   <% end %>
 
-  <div class="field column">
-    <div class="newLabel">
+  <div class="field ">
       <%= f.label :name, "Name:" %>
       <%= f.text_field :name %>
-    </div>
-  </div><br>
+  </div>
 
-  <div class="field column 3">
-    <div class="newLabel">
+  <div class="field">
       <%= f.label :location_id, "Location:" %>
       <%= f.collection_select('location_id', Location.all, :id, :name, prompt: true) %>
-    </div>
-  </div><br>
+  </div>
 
-  <div class="field column">
-    <div class="newLabel">
+  <div class="field">
       <%= f.label :description, "Description:"%>
       <%= f.text_field :description %>
-    </div>
-  </div><br>
+  </div>
 
-  <div class="field column">
-    <div class="newLabel">
+  <div class="field">
       <%= f.label :eventdate, "Event Date:"%>
       <%= f.datetime_field  :eventdate %>
-    </div>
-  </div><br>
+  </div>
 
   <div class="control-group column">
-    <div class="newLabel">
       <%= f.label :boardgame, "Boardgames:"%>
       <div class="boardgames">
     <%= f.collection_check_boxes(:boardgame_ids, Boardgame.all, :id, :title, {multiple: true })  %>
     </div>
   </div>
-  </div><br>
 
-  <div class="action column">
+  <div class="action">
     <%= f.submit "Save Change"%>
   </div><br>
 <% end %>

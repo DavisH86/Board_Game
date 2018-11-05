@@ -48,7 +48,7 @@
   <%= button_to button_text, { action: "join", id: @event.id }, {method: :patch, disabled: disable } %>
 </div>
 
-<div class="description">
+<div class="description scroll">
 <h1>Score</h1>
   <% @boardgames.each do |b| %>
     <table>
@@ -64,18 +64,21 @@
         <tr>
 
         </tr>
-        <td>
-        <%= form_for(b) do |f| %>
-          <div>
+        <tr>
+          <td>
+            <%= form_for(b) do |f| %>
             <%= f.label :user, "User:" %>
+          </td>
+
+          <td>
             <%= collection_select(:user_ids, :event_id, @event.users, :id, :first_name, prompt: true) %>
-          </div>
+          </td>
           <td>
             <div class="actions">
               <%= f.submit "Sign up" %>
             </div>
           </td>
-        </td>
+        </tr>
         <% end %>
     </table>
   <% end %>

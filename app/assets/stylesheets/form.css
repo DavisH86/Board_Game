@@ -3,3 +3,21 @@
   margin-right: 10rem;
   margin-left: 10rem;
 }
+
+.newLabel {
+  margin: 2rem;
+  background-color: #f2dabc;
+  border-radius: 25px solid brown;
+  color: #3a342f;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.description {
+  border: 3px solid brown;
+  border-radius: 25px;
+  background-color: #f2dabc;
+  font-size: 20px;
+  padding: 10px;
+  margin: 2rem;
+}
