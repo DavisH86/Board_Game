@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :events, only: [:index, :show, :create, :update, :new, :edit] do
+    resources :comments, only: [:new, :create]
     member do
       patch 'join'
     end
