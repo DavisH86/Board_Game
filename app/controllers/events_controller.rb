@@ -42,6 +42,7 @@ before_action :authenticate_user!, except: [:index, :show]
   def show
     @event = Event.find(params[:id])
     @boardgames = @event.boardgames
+    @comments = @event.comments
   end
 
   def edit

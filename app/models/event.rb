@@ -6,7 +6,8 @@ class Event < ApplicationRecord
   has_and_belongs_to_many :users
 
   has_many :scores
-
+  has_many :comments
+  
   belongs_to :location
   belongs_to :organizer, class_name: "User"
 end

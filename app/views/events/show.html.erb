@@ -3,86 +3,102 @@
   <%= "Description: #{@event.description}" %><br>
   <%= "Location: #{@event.location.name}, #{@event.location.address}" %><br>
   <% if current_user == @event.organizer %>
-    <li><%= link_to '<button type="button">Change Location</button>'.html_safe, edit_event_path(@event) %></li>
+    <%= link_to '<button type="button">Change Location</button>'.html_safe, edit_event_path(@event) %>
   <% end %>
 </div>
 
-<div class="newLabel">
-<h3>Boardgames:</h3>
-  <% @boardgames.each do |b| %>
+<div class="description">
+  <h3>Boardgames:</h3>
+    <% @boardgames.each do |b| %>
+      <ul>
+        <li><%= link_to b.title, boardgame_path(b.id) %></li>
+      </ul>
+    <% end %>
+
+    <% if current_user == @event.organizer %>
+      <%= link_to '<button type="button">Add Board Game</button>'.html_safe, edit_event_path(@event) %>
+    <% end %>
+
+  <h3>When:</h3>
+    <% if @event.eventdate != nil %>
+      <%= "Date: #{@event.eventdate.strftime("%m/%d/%Y at %I:%M%p")}"%>
+    <% end %>
+
+  <h3><%= "Organized by:" %></h3>
     <ul>
-      <li><%= link_to b.title, boardgame_path(b.id) %></li>
+      <li><%= "#{@event.organizer.first_name} #{@event.organizer.last_name}" %></li>
     </ul>
+
+  <h3><%= "Members Attending" %></h3>
+  <% disable = false %>
+  <% @event.users.each do |user| %>
+    <ul>
+      <li><%= "User: #{user.first_name} #{user.last_name}" %></li>
+    </ul>
+    <% if user == current_user %>
+      <% disable = true %>
+    <% end %>
   <% end %>
 
-  <% if current_user == @event.organizer %>
-    <li><%= link_to '<button type="button">Add Board Game</button>'.html_safe, edit_event_path(@event) %></li>
+  <% button_text = 'Sign up' %>
+  <% if disable == true %>
+    <% button_text = "See you at the event" %>
   <% end %>
 
-<h3>When:</h3>
-  <% if @event.eventdate != nil %>
-    <%= "Date: #{@event.eventdate.strftime("%m/%d/%Y at %I:%M%p")}"%>
-  <% end %>
+  <%= button_to button_text, { action: "join", id: @event.id }, {method: :patch, disabled: disable } %>
+</div>
 
-<h3><%= "Organized by:" %></h3>
-  <ul>
-    <li><%= "#{@event.organizer.first_name} #{@event.organizer.last_name}" %></li>
-  </ul>
+<div class="description">
+<h1>Score</h1>
+  <% @boardgames.each do |b| %>
+    <table>
 
-<h3><%= "Members Attending" %></h3>
-<% disable = false %>
-<% @event.users.each do |user| %>
-  <ul>
-    <li><%= "User: #{user.first_name} #{user.last_name}" %></li>
-  </ul>
-  <% if user == current_user %>
-    <% disable = true %>
-  <% end %>
-<% end %>
+        <tr>
+          <th><%= b.title %></th>
+          <th>Win</th>
+          <th>Lose</th>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+        <tr>
 
-<% button_text = 'Sign up' %>
-<% if disable == true %>
-  <% button_text = "See you at the event" %>
-<% end %>
-
-<%= button_to button_text, { action: "join", id: @event.id }, {method: :patch, disabled: disable } %>
-<hr>
-
-
-<% @boardgames.each do |b| %>
-  <table>
-
-      <tr>
-        <th><%= b.title %></th>
-        <th>Win</th>
-        <th>Lose</th>
-      </tr>
-      <tr>
-        <td></td>
-      </tr>
-      <tr>
-
-      </tr>
-      <td>
-      <%= form_for(b) do |f| %>
-        <div>
-          <%= f.label :user, "User:" %>
-          <%= collection_select(:user_ids, :event_id, @event.users, :id, :first_name, prompt: true) %>
-        </div>
+        </tr>
         <td>
-          <div class="actions">
-            <%= f.submit "Sign up" %>
+        <%= form_for(b) do |f| %>
+          <div>
+            <%= f.label :user, "User:" %>
+            <%= collection_select(:user_ids, :event_id, @event.users, :id, :first_name, prompt: true) %>
           </div>
+          <td>
+            <div class="actions">
+              <%= f.submit "Sign up" %>
+            </div>
+          </td>
         </td>
-      </td>
-      <% end %>
-  </table>
-<% end %>
+        <% end %>
+    </table>
+  <% end %>
+</div>
 
-<% if current_user == @event.organizer %>
-  <%= link_to '<button type="button">Edit Page</button>'.html_safe, edit_event_path(@event) %>
-<% end %>
+<div class="description">
+  <h3 ><%= "Comment:" %></h3>
+  <% if @comments.nil? == false %>
+    <% @comments.each do |comment| %>
+      <%= "User: #{comment.user.first_name}, #{comment.body}"%>
+      <br>
+      <%= "Created on: #{comment.created_at.strftime("%B %d %Y")}" %>
+      <br>
+    <% end %>
+  <% end %>
+  <%= link_to "Add a Comment", new_event_comment_path(@event) %>
 
-<div>
-<%= link_to '<button type="button">Back</button>'.html_safe, events_path %>
+  <hr>
+  <% if current_user == @event.organizer %>
+    <%= link_to '<button type="button">Edit Page</button>'.html_safe, edit_event_path(@event) %>
+  <% end %>
+
+  <div>
+  <%= link_to '<button type="button">Back</button>'.html_safe, events_path %>
+  </div>
 </div>

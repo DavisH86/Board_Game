@@ -9,9 +9,9 @@
 Event.create([
   { name: "Hat", location_id: 1, description: "Money makes the world go round.  We need to prepare by buying all resources we can!", user_id: nil, organizer_id: 1, eventdate: DateTime.strptime("08/01/2018 17:00", "%m/%d/%Y %H:%M")},
   { name: "Spy Night", location_id: 2, description: "It's time to battle!!! ...With words. Lets have fun.", user_id: nil, organizer_id: 2, eventdate: DateTime.strptime("11/09/2018 17:00", "%m/%d/%Y %H:%M") },
-  { name: "Battleship", location_id: 3, description: "Lets try something old school. Try to sink my Battleship!" , user_id: nil, organizer_id: 1, eventdate: DateTime.strptime("11/01/2018 17:00", "%m/%d/%Y %H:%M") },
-  { name: "I spy", location_id: 2, description: "It's time for another mission Red spies. Lets get those Blues!!!", user_id: nil, organizer_id: 3, eventdate: DateTime.strptime("09/01/2018 17:00", "%m/%d/%Y %H:%M") },
-  { name: "Pictionary", location_id: 2, description: "Let's do something with a little flare with pictures", user_id: nil, organizer_id: 2, eventdate: DateTime.strptime("11/16/2018 17:00", "%m/%d/%Y %H:%M") }
+  { name: "Battleship", location_id: 3, description: "Lets try something old school. Try to sink my Battleship!" , user_id: nil, organizer_id: 1, eventdate: DateTime.strptime("11/016/2018 17:00", "%m/%d/%Y %H:%M") },
+  { name: "I spy", location_id: 2, description: "It's time for another mission Red spies. Lets get those Blues!!!", user_id: nil, organizer_id: 3, eventdate: DateTime.strptime("11/17/2018 17:00", "%m/%d/%Y %H:%M") },
+  { name: "Pictionary", location_id: 2, description: "Let's do something with a little flare with pictures", user_id: nil, organizer_id: 2, eventdate: DateTime.strptime("11/21/2018 17:00", "%m/%d/%Y %H:%M") }
   ]);
 
 Boardgame.create([

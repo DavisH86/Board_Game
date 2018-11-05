@@ -1,0 +1,15 @@
+<h1 class="showTitle">Comment for <%= @event.name %></h1>
+
+<%= form_for [@event, @comment] do |f| %>
+
+ <% @comment.errors.full_messages.each do |message| %>
+   <li><%= message %></li>
+ <% end %>
+
+ <div class="field">
+   <%= f.label :body, "Comment:" %>
+   <%= f.text_field :body %>
+ </div><br>
+
+ <%= f.submit "Add Comment" %>
+<% end %>

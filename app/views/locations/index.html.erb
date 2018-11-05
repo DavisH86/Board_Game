@@ -1,5 +1,6 @@
-<h1>Location</h1>
+<h1 class="small-6 center">Location</h1>
 
+<div class="small-6 center">
   <% @locations.each do |location| %>
   <ul>
       <%= link_to location.name, location_path(location) %><br>
@@ -9,3 +10,4 @@
   <div>
     <%= link_to '<button type="button">New Location</button>'.html_safe, new_location_path %>
   </div>
+</div>
