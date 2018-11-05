@@ -5,16 +5,17 @@
  <% @review.errors.full_messages.each do |message| %>
    <li><%= message %></li>
  <% end %>
+  <div class="forms newLabel">
+   <div class="field">
+     <%= f.label :rating, "Rating" %>
+     <%= f.number_field :rating %>
+   </div><br>
 
- <div class="field">
-   <%= f.label :rating, "Rating" %>
-   <%= f.text_field :rating %>
- </div><br>
+   <div class="field">
+     <%= f.label :body, "Review:" %>
+     <%= f.text_field :body %>
+   </div>
 
- <div class="field">
-   <%= f.label :body, "Review:" %>
-   <%= f.text_field :body %>
- </div>
-
- <%= f.submit "Add Review" %>
+   <%= f.submit "Add Review" %>
+  </div>
 <% end %>
