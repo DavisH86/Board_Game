@@ -1,14 +1,12 @@
 <h2 class="newTitle">Edit <%= resource_name.to_s.humanize %></h2>
 
-<div class="forms">
+<div class="forms newLabel">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field column">
-    <div class="newLabel">
       <%= f.label :email %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -16,27 +14,21 @@
   <% end %>
 
   <div class="field column">
-    <div class="newLabel">
       <%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
       <%= f.password_field :password, autocomplete: "new-password" %>
       <% if @minimum_password_length %>
         <em><%= @minimum_password_length %> characters minimum</em>
       <% end %>
-    </div>
   </div>
 
   <div class="field column">
-    <div class="newLabel">
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-    </div>
   </div>
 
   <div class="field column">
-    <div class="newLabel">
       <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
       <%= f.password_field :current_password, autocomplete: "current-password" %>
-    </div>
   </div>
 
   <div class="actions">
