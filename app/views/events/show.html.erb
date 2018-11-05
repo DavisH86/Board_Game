@@ -82,16 +82,17 @@
 </div>
 
 <div class="description">
-  <h3 ><%= "Comment:" %></h3>
+  <h3 ><%= "Comments:" %></h3>
   <% if @comments.nil? == false %>
     <% @comments.each do |comment| %>
-      <%= "User: #{comment.user.first_name}, #{comment.body}"%>
+    <div class="bodyText">
+      <%= "#{comment.body}, created By #{comment.user.first_name} #{comment.user.first_name}"%>
       <br>
       <%= "Created on: #{comment.created_at.strftime("%B %d %Y")}" %>
-      <br>
+    </div>
     <% end %>
   <% end %>
-  <%= link_to "Add a Comment", new_event_comment_path(@event) %>
+  <%= link_to '<button type="button">Add Comment</button>'.html_safe, new_event_comment_path(@event) %>
 
   <hr>
   <% if current_user == @event.organizer %>
