@@ -11,8 +11,9 @@
 
         <%= "Score: #{review.rating}"%>
         <br>
-        <%= "#{review.body}, create by #{review.user.first_name} #{review.user.last_name}"%>
+        <%= "#{review.body}, create by #{review.user.name}"%>
         <br>
+
         <%= "Created on: #{review.created_at.strftime("%B %d %Y")}" %>
         <br>
       <% end %>

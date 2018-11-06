@@ -26,14 +26,14 @@
 
   <h3><%= "Organized by:" %></h3>
     <ul>
-      <li><%= "#{@event.organizer.first_name} #{@event.organizer.last_name}" %></li>
+      <li><%= "#{@event.organizer.name}" %></li>
     </ul>
 
   <h3><%= "Members Attending" %></h3>
   <% disable = false %>
   <% @event.users.each do |user| %>
     <ul>
-      <li><%= "User: #{user.first_name} #{user.last_name}" %></li>
+      <li><%= "User: #{user.name}" %></li>
     </ul>
     <% if user == current_user %>
       <% disable = true %>
@@ -71,7 +71,7 @@
           </td>
 
           <td>
-            <%= collection_select(:user_ids, :event_id, @event.users, :id, :first_name, prompt: true) %>
+            <%= collection_select(:user_ids, :event_id, @event.users, :id, :name, prompt: true) %>
           </td>
           <td>
             <div class="actions">
@@ -89,7 +89,7 @@
   <% if @comments.nil? == false %>
     <% @comments.each do |comment| %>
     <div class="bodyText">
-      <%= "#{comment.body}, created By #{comment.user.first_name} #{comment.user.first_name}"%>
+      <%= "#{comment.body}, created By #{comment.user.name}"%>
       <br>
       <%= "Created on: #{comment.created_at.strftime("%B %d %Y")}" %>
     </div>

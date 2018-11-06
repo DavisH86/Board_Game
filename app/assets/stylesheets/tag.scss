@@ -1,8 +1,13 @@
 body {
-  // background-image: image-url('caton.jpg');
+  background-image: image-url('caton.jpg');
   background-repeat: repeat;
   background-size: cover;
   // background-blend-mode: screen;
+}
+
+.image-url {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
 }
 
 .flash{
