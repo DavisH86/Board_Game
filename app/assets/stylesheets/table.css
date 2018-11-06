@@ -3,12 +3,12 @@
 }
 
 .indextable th {
-  background-color: #bae2e2;
+  background-color: #a0968e;
+  color: #e5dad0;
   font-size: 20px;
 }
 
 .indextable td {
-
   font-size: 20px;
 }
 .searchbar {
