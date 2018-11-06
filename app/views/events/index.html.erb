@@ -6,11 +6,11 @@
 </p>
 
 <h1 class="Title">Event Index</h1>
-<div class="indexLinks">
-  <%= link_to "Board Games", boardgames_path %>|
-  <%= link_to "Group Page", groups_path %> |
-  <%= link_to "Location", locations_path %> |
-  <%= link_to "Add New Event", new_event_path %>
+<div class="indexbutton">
+  <%= link_to '<button type="button">Board Game</button>'.html_safe, boardgames_path %>
+  <%= link_to '<button type="button">Group page</button>'.html_safe, groups_path %>
+  <%= link_to '<button type="button">Location</button>'.html_safe, locations_path %> 
+  <%= link_to '<button type="button">Add New Event</button>'.html_safe, new_event_path %>
 </div>
 <table class="indextable">
   <thead>
@@ -19,7 +19,6 @@
       <th>Posted</th>
       <th>Date</th>
       <th>Organizer</th>
-      <th colspan="3"></th>
     </tr>
 
   </thead>

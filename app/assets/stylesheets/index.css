@@ -6,6 +6,38 @@
   text-shadow: 2px 2px #000000;
 }
 
+.center {
+    margin: auto;
+    width: 60%;
+    border: 3px solid brown;
+    padding: 10px;
+    text-align: center;
+    background-color: white;
+    border-radius: 25px;
+}
+
+.indexbutton {
+  margin: auto;
+  text-align: center;
+  /* border: 3px solid brown; */
+  
+  padding: 10px;
+  /* background-color: black; */
+}
+
+.indexbutton button {
+  margin: auto;
+  border: 3px solid brown;
+  background-color: #ce892f;
+
+}
+
+.indexbutton button:hover {
+  margin: auto;
+  border: 3px solid brown;
+  box-shadow: 2px 2px;
+}
+
 .Title {
   font-family: 'Notable', sans-serif;
   color: #A85826;

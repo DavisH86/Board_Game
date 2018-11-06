@@ -3,7 +3,9 @@
 <div class="small-6 center">
   <% @locations.each do |location| %>
   <ul>
+    <div class="locationName">
       <%= link_to location.name, location_path(location) %><br>
+    </div>
       <%= location.address %><br>
     </ul>
   <% end %>
