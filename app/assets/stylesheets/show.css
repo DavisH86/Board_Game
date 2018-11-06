@@ -1,0 +1,37 @@
+.description {
+  border: 3px solid brown;
+  border-radius: 25px;
+  background-color: #f2dabc;
+  font-size: 20px;
+  padding: 10px;
+  margin: auto;
+  width: 60%;
+}
+
+.description li {
+  font-size: 20px;
+}
+
+.description button {
+  margin: auto;
+  border: 3px solid brown;
+  background-color: #ce892f;
+  border-radius: 12px;
+
+}
+
+.description button:hover {
+  margin: auto;
+  border: 3px solid brown;
+  box-shadow: 2px 2px;
+}
+
+.description button:hover {
+  margin: auto;
+  border: 3px solid brown;
+  box-shadow: 2px 2px;
+}
+
+.locationName {
+  font-size: 30px;
+}

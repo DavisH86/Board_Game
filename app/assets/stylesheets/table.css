@@ -1,19 +1,21 @@
-.center {
-    margin: auto;
-    width: 60%;
-    border: 3px solid brown;
-    padding: 10px;
-    text-align: center;
-    background-color: white;
-    border-radius: 25px;
-}
-
 .indextable {
   margin: auto;
 }
 
+.indextable th {
+  background-color: #bae2e2;
+  font-size: 20px;
+}
 
+.indextable td {
+
+  font-size: 20px;
+}
 .searchbar {
   margin: auto;
 
+}
+
+.boardgametable {
+  margin: auto;
 }
