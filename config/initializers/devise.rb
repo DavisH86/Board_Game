@@ -10,7 +10,7 @@ Devise.setup do |config|  config.secret_key = Rails.application.secret_key_base
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '0729f99f5ca8f5ea15a3b66ea8b8380192f37a02d84876b2345af6c8bfb1070d720eb12c56e07f284d85fe822aa35f8449499d1b8c877569fb5863bee22a2645'
-  
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -267,6 +267,7 @@ Devise.setup do |config|  config.secret_key = Rails.application.secret_key_base
   #   manager.intercept_401 = false
   #   manager.default_strategies(scope: :user).unshift :some_external_strategy
   # end
+  config.omniauth :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET'], :scope => 'user:email'
 
   # ==> Mountable engine configurations
   # When using Devise inside an engine, let's call it `MyEngine`, and this engine
@@ -288,4 +289,6 @@ Devise.setup do |config|  config.secret_key = Rails.application.secret_key_base
   # ActiveSupport.on_load(:devise_failure_app) do
   #   include Turbolinks::Controller
   # end
+
+
 end

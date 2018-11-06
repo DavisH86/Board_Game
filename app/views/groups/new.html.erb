@@ -1,23 +1,23 @@
 <h1 class="Title">New Group Form</h1>
-<div class="forms newLabel">
+<div class="forms">
 <%= form_for(@group) do |f| %>
 
   <% @group.errors.full_messages.each do |message| %>
     <li><%= message %></li>
   <% end %>
 
-  <div class="field">
+  <div class="field column">
     <%= f.label :name, "Group Name:" %>
     <%= f.text_field :name %>
   </div><br>
 
-  <div class="field">
+  <div class="field column">
     <%= f.label :description, "Info:"%>
     <%= f.text_field :description %>
   </div><br>
 
 
-  <div class="field">
+  <div class="field column">
     <%= f.submit "Add Group"%>
   </div><br>
 <% end %>

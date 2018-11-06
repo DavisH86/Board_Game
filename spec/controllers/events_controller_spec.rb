@@ -7,7 +7,7 @@ describe EventsController do
   #   end
   # end
   before(:each) do
-    user = User.create(email: "testing@gmail.com", first_name: "test", last_name: "LN", user_name: "username", password: "password1")
+    user = User.create(email: "testing@gmail.com", name: "username", password: "password1")
     boardgame = Boardgame.create(title: "Bat", description: "man", rating: 4)
     Event.create(name: "Jump", description: "Clock", location: "downtown", user: user, boardgame: boardgame)
     Event.create(name: "rock", description: "house", location: "downtown", user: user, boardgame: boardgame)

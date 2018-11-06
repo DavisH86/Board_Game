@@ -31,6 +31,13 @@
   text-align: center;
   background-color: black;
   padding: 2px;
-  margin: 2px;
+  margin: 3px;
   color: brown;
+  /* opacity: 0.5;
+  filter: alpha(opacity=50); */
+}
+
+.indexLinks:hover {
+    opacity: 1.0;
+    filter: alpha(opacity=100); /* For IE8 and earlier */
 }

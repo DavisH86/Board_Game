@@ -1,6 +1,6 @@
 <h1 class="Title">New Event Form</h1>
 
-<div class="forms newLabel">
+<div class="forms">
 <%= form_for(@event) do |f| %>
 
   <% @event.errors.full_messages.each do |message| %>
@@ -41,5 +41,5 @@
     <%= f.submit "Add Event"%>
   </div><br>
 <% end %>
-</div>
 <%= link_to "Back", events_path %>
+</div>
