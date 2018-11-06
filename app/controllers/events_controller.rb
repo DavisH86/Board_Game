@@ -43,6 +43,9 @@ before_action :authenticate_user!, except: [:index, :show]
     @event = Event.find(params[:id])
     @boardgames = @event.boardgames
     @comments = @event.comments
+    @score = Score.new
+    @round = @event.boardgames
+    
   end
 
   def edit
@@ -71,6 +74,6 @@ before_action :authenticate_user!, except: [:index, :show]
 
   private
   def event_params
-    params.require(:event).permit(:name, :description, :location_id, :eventdate, boardgame_ids: [])
+    params.require(:event).permit(:name, :description, :location_id, :round, :eventdate, boardgame_ids: [])
   end
 end
