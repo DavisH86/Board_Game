@@ -1,7 +1,7 @@
 class ScoresController < ApplicationController
   def create
     @score = Score.new(score_params)
-    @boardgame = Boardgame.find(params[:boardgame_id])
+    @boardgame = Boardgame.where(id: params[:event][:boardgame_id])
     @score.user = User.where(id: params[:event][:user_id])
 
     if @score.save

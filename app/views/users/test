@@ -1,0 +1,22 @@
+<!-- <% if !@user.followers.nil? %>
+  <%=@user.followers.each do |follower| %>
+  	<ul>
+  		<li><%= follower.name %></li>
+  	</ul>
+  <% end %>
+<% end %>
+
+<% if !@user.followeds.nil? %>
+  <%= @user.followeds.each do |followed| %>
+    <ul>
+      <li><%= followed.name %></li>
+    </ul>
+  <% end %>
+<% end %> -->
+
+</div>
+<div class="center">
+<section class="stats">
+  <%= render 'shared/stats' %>
+</section>
+</div>

@@ -32,7 +32,12 @@ Rails.application.routes.draw do
 
   resources :locations, only: [:index, :new, :create, :show]
   resources :groups, only: [:index, :show, :create, :update, :new]
-  resources :users, only: [:show]
+  resources :users, only: [:show, :create, :destroy] do
+    member do
+      get :following, :followers
+    end
+  end
+  resources :follows, only: [:create, :destroy]
   resources :scores
   # get '/boardgames', to: 'homes#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
