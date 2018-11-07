@@ -73,11 +73,11 @@ ActiveRecord::Schema.define(version: 2018_11_06_182248) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
-  create_table "follows", force: :cascade do |t|
+  create_table "followships", force: :cascade do |t|
     t.bigint "follower_id", null: false
-    t.bigint "following_id", null: false
-    t.index ["follower_id"], name: "index_follows_on_follower_id"
-    t.index ["following_id"], name: "index_follows_on_following_id"
+    t.bigint "followed_id", null: false
+    t.index ["followed_id"], name: "index_followships_on_followed_id"
+    t.index ["follower_id"], name: "index_followships_on_follower_id"
   end
 
   create_table "groups", force: :cascade do |t|
@@ -141,10 +141,12 @@ ActiveRecord::Schema.define(version: 2018_11_06_182248) do
     t.integer "win", null: false
     t.integer "lose", null: false
     t.bigint "user_id", null: false
-    t.bigint "round_id", null: false
+    t.bigint "event_id", null: false
+    t.bigint "boardgame_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["round_id"], name: "index_scores_on_round_id"
+    t.index ["boardgame_id"], name: "index_scores_on_boardgame_id"
+    t.index ["event_id"], name: "index_scores_on_event_id"
     t.index ["user_id"], name: "index_scores_on_user_id"
   end
 

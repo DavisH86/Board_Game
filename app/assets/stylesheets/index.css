@@ -6,6 +6,19 @@
   text-shadow: 4px 5px #000000;
 }
 
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid $grayLighter;
+    &:last-child {
+      border-bottom: 1px solid $grayLighter;
+    }
+  }
+}
+
 .center {
     margin: auto;
     width: 60%;

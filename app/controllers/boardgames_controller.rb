@@ -36,6 +36,7 @@ class BoardgamesController < ApplicationController
 
   private
   def boardgame_params
+    
     params.require(:boardgame).permit(:title, :rating, :description)
   end
 end

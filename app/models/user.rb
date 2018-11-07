@@ -22,28 +22,28 @@ class User < ApplicationRecord
   has_many :reviews
 
   #follower following me
-  has_many :follower_follows, class_name: "Follow", foreign_key: "followed_id", dependent: :destroy
-  has_many :following, through: :follower_follows, source: :followed
+  has_many :follower_followships, class_name: "Followship", foreign_key: "follower_id", dependent: :destroy
+  has_many :followeds, through: :follower_followships, source: :followed
 
 
   #following other User
-  has_many :following_users, class_name: "Follow", foreign_key: "follower_id", dependent: :destroy
-  has_many :followers, through: :followed_users, source: :follower
+  has_many :followed_followships, class_name: "Followship", foreign_key: "followed_id", dependent: :destroy
+  has_many :followers, through: :followed_followships, source: :follower
 
   #following a user.
   def follow(other_user)
-    following << other_user
+    Followship.create!(followed_id: other_user.id, follower_id: id)
   end
   #unfollows a user.
   def unfollow(other_user)
-    following.delete(other_user)
+    follower_followships.find_by(followed_id: other_user.id).destroy
   end
   #Returns true if the current_user is following other user.
   def following?(other_user)
-    following.include?(other_user)
+    !follower_followships.find_by(followed_id: other_user.id).nil?
   end
 
-  #omniauth 
+  #omniauth
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.name = auth.info.name

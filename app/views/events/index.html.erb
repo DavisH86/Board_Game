@@ -9,8 +9,9 @@
 <div class="indexbutton">
   <%= link_to '<button type="button">Board Game</button>'.html_safe, boardgames_path %>
   <%= link_to '<button type="button">Group page</button>'.html_safe, groups_path %>
-  <%= link_to '<button type="button">Location</button>'.html_safe, locations_path %> 
+  <%= link_to '<button type="button">Location</button>'.html_safe, locations_path %>
   <%= link_to '<button type="button">Add New Event</button>'.html_safe, new_event_path %>
+  <%= link_to '<button type="button">User List</button>'.html_safe, users_path %>
 </div>
 <table class="indextable">
   <thead>
@@ -42,7 +43,17 @@
       </id>
     </tr>
     <% end %>
-
-
   </tbody>
 </table>
+
+<% if current_user %>
+  <div class="center row">
+    <aside class="col-md-4">
+      <section class="stats">
+        <%= render 'shared/stats' %>
+      </section>
+    </aside>
+
+  </div>
+
+<% end %>

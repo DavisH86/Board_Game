@@ -64,3 +64,5 @@ gem "shoulda-matchers"
 gem 'rails-controller-testing'
 gem "carrierwave"
 gem "omniauth-github"
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
