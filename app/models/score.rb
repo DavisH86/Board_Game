@@ -3,6 +3,5 @@ class Score < ApplicationRecord
   validates :loss, presence: true
 
   belongs_to :user
-  belongs_to :match
-  belongs_to :event
+  belongs_to :round
 end

@@ -62,11 +62,11 @@
           <td></td>
         </tr>
         <tr>
-
         </tr>
         <tr>
           <td>
-            <%= form_for(b) do |f| %>
+            <%= form_for(@score) do |f| %>
+
             <%= f.label :user, "User:" %>
           </td>
 
@@ -96,6 +96,7 @@
     <% end %>
   <% end %>
   <%= link_to '<button type="button">Add Comment</button>'.html_safe, new_event_comment_path(@event) %>
+
 
   <hr>
   <% if current_user == @event.organizer %>

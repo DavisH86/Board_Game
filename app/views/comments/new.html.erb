@@ -1,15 +1,16 @@
-<h1 class="showTitle">Comment for <%= @event.name %></h1>
+<h1 class="Title">Comment for <%= @event.name %></h1>
+<div class="forms">
+  <%= form_for [@event, @comment] do |f| %>
 
-<%= form_for [@event, @comment] do |f| %>
+   <% @comment.errors.full_messages.each do |message| %>
+     <li><%= message %></li>
+   <% end %>
 
- <% @comment.errors.full_messages.each do |message| %>
-   <li><%= message %></li>
- <% end %>
+   <div class="field">
+     <%= f.label :body, "Comment:" %>
+     <%= f.text_field :body %>
+   </div><br>
 
- <div class="field">
-   <%= f.label :body, "Comment:" %>
-   <%= f.text_field :body %>
- </div><br>
-
- <%= f.submit "Add Comment" %>
-<% end %>
+   <%= f.submit "Add Comment" %>
+  <% end %>
+</div>

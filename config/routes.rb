@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+    resources :rounds
     resources :scores, only: [:create]
     resources :boardgames, only: [:index, :new, :create]
   end
@@ -39,6 +40,7 @@ Rails.application.routes.draw do
   end
   resources :follows, only: [:create, :destroy]
   resources :scores
+  resources :rounds
   # get '/boardgames', to: 'homes#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
