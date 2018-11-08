@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Boardgames</title>
+  <title>BoardGame-Night</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Notable" rel="stylesheet">
@@ -17,17 +17,17 @@
   <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
-        <h1><a href="/">Boardgames</a></h1>
+        <h1><a href="/">BoardGame-Night</a></h1>
       </li>
     </ul>
 
-    <%= form_tag(search_boardgames_path, method: :get) do |f|%>
+    <%= form_for(:boardgame, {url: search_boardgames_path, method: :get}) do |f|%>
       <ul >
         <div>
-          <li class="small-3 medium-3 Large-3 columns"><%= text_field_tag :title %></li>
+          <li class="small-3 medium-3 Large-3 columns"><%= f.text_field :title, placeholder: "Search Boardgames.." %></li>
         </div>
         <div>
-          <li class="small-3 medium-3 Large-3 columns"><%= submit_tag 'Search' %></li>
+          <li class="small-3 medium-3 Large-3 columns"><%= f.submit 'Search' %></li>
         </div>
       </ul>
     <% end %>
@@ -36,7 +36,7 @@
       <ul class="right">
         <%- if current_user -%>
           <li><%= link_to "User", user_path(current_user) %></li>
-          <li><%= image_tag "#{current_user.profile_photo}", size: "40x40" %></li>
+          <li><%= link_to (image_tag "#{current_user.profile_photo}", size: "40x40"), user_path(current_user) %></li>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <%- else -%>
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>

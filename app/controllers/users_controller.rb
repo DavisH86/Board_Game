@@ -1,19 +1,29 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page])
+  end
+
+  # Returns a user's status feed.
+  def feed
+    followed_ids = "SELECT followed_id FROM relationships
+                     WHERE  follower_id = :user_id"
+    Micropost.where("user_id IN (#{following_ids})
+                     OR user_id = :user_id", user_id: id)
   end
 
   def show
+    @users = User.all
     @user = current_user.id
     @user = User.find(params[:id])
   end
-  def following
-    @title = Following
+
+  def followeds
+    @title = "Following"
     @user = User.find(params[:id])
-    @users = @user.following.paginate(page: params[:page])
+    @users = @user.followeds.paginate(page: params[:page])
     render 'show'
   end
-  def follower
+  def followers
     @title = "Followers"
     @user = User.find(params[:id])
     @users = @user.followers.paginate(page: params[:page])

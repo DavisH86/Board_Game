@@ -25,7 +25,7 @@ Boardgame.create([
   ]);
 
 User.create([
-  {  name: "Davis ma", email: "davishma@gmail.com", encrypted_password: "light1", password: "light1", profile_photo:nil },
+  {  name: "Davisma", email: "davish@gmail.com", encrypted_password: "light1", password: "light1", profile_photo:nil },
   { name: "Metmee meme", email: "dmate@gmail.com", encrypted_password: "Mememe", password: "Mememe", profile_photo:nil },
   { name: "John Art", email: "John@gmail.com",  encrypted_password: "Buckle", password: "Buckle", profile_photo:nil }
   ]);

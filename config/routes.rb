@@ -33,12 +33,12 @@ Rails.application.routes.draw do
 
   resources :locations, only: [:index, :new, :create, :show]
   resources :groups, only: [:index, :show, :create, :update, :new]
-  resources :users, only: [:show, :create, :destroy] do
+  resources :users do
     member do
-      get :following, :followers
+      get :followeds, :followers
     end
   end
-  resources :follows, only: [:create, :destroy]
+  resources :followships, only: [:create, :destroy]
   resources :scores
   resources :rounds
   # get '/boardgames', to: 'homes#index'

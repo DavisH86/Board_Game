@@ -17,10 +17,12 @@
   border-radius: 25px;
   background-color: white;
   width: 60%;
+  padding: 10px;
 }
 
 .searchResult p {
   font-size: 2rem;
+
 }
 
 .newLabel label {
