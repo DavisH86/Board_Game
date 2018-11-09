@@ -57,3 +57,25 @@
   </div>
 
 <% end %>
+
+<h1>Search from</h1>
+
+
+<div class="forms">
+  <%= form_tag({controller: "searches", action: "search"}, method: "get", class: "nifty_form") do %>
+
+    <div class="field">
+      <%= label_tag :search_type %>
+      <%= select_tag :search_type, "<option>Boardgame</option><option>Event</option><option>Location</option>".html_safe%>
+    </div><br>
+
+    <div class="field">
+      <%= label_tag :keyword, "Keyword:" %>
+      <%= text_field_tag :keyword %>
+    </div><br>
+
+    <div class="field">
+      <%= submit_tag "Search"%>
+    </div>
+  <% end %>
+</div>

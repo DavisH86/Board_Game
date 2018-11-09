@@ -1,0 +1,17 @@
+<h1>Search from</h1>
+
+<!-- <a class="button dropdown" href="#" data-dropdown="drop1">Dropdown Button </a>
+<ul class="f-dropdown" id="drop1" data-dropdown-content="">
+<li><a href="/events">Event</a></li>
+<li><a href="/locations">Location</a></li>
+<li><a href="/boardgames">Boardgame</a></li>
+</ul>
+</div> -->
+
+<hr>
+<%= form_for(:boardgame, {method: :get,  url: search_boardgames_path }) do |f|%>
+  <div class="field column 2">
+  <%= f.text_field :title, placeholder: "Enter Board Games here..." %>
+  <%= f.submit 'Search' %>
+  </div>
+<% end %>

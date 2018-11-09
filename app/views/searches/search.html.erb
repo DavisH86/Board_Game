@@ -1,0 +1,23 @@
+<h1 class="Title">Search Results</h1>
+<br >
+<% if @results.empty? %>
+  <div class="searchResult">
+    <p>No results found.</p>
+
+<% else %>
+
+  <div class="searchResult">
+    <p><%= "#{@results.count} result(s) found." %></p>
+    <ul class="unstyled">
+      <% @results.each do |result| %>
+      <li>
+        <% if @type == "Boardgame" %>
+          <%= link_to result.title, result %>
+        <% else %>
+          <%= link_to result.name, result %>
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
