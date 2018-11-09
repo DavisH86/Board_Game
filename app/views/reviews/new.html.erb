@@ -1,11 +1,11 @@
-<h1 class="showTitle">Review Form for <%= @boardgame.title %></h1>
+<h1 class="Title">Review Form for <%= @boardgame.title %></h1>
 
 <%= form_for [@boardgame, @review] do |f| %>
 
  <% @review.errors.full_messages.each do |message| %>
    <li><%= message %></li>
  <% end %>
-  <div class="forms newLabel">
+  <div class="forms ">
    <div class="field">
      <%= f.label :rating, "Rating" %>
      <%= f.number_field :rating %>

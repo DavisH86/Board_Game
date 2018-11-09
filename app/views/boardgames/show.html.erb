@@ -1,4 +1,9 @@
 <h2 class="Title"><%= "Boardgame: #{@boardgame.title}" %></h2>
+
+<div class="boardgamePhoto">
+  <%= (image_tag "#{@boardgame.boardgame_photo}", size: "700") %>
+</div>
+
 <div class="description">
   <%= "Description: #{@boardgame.description}" %><br>
 </div>
@@ -22,6 +27,9 @@
   </div>
   <%= link_to '<button type="button">Add a Review</button>'.html_safe, new_boardgame_review_path(@boardgame) %>
 <hr>
-<%=link_to "Board Games", boardgames_path %>|
+<% if current_user.nil? %>
+<%= link_to "Edit", edit_boardgame_path %> |
+<% end %>
+<%= link_to "Board Games", boardgames_path %>|
 <%= link_to "Group Page", groups_path %>
 </div>

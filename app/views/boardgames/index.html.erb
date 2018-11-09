@@ -1,28 +1,7 @@
-<!-- <div>
-  <a class="button dropdown" href="#" data-dropdown="drop1">Dropdown Button </a>
-<ul class="f-dropdown" id="drop1" data-dropdown-content="">
-<li><a href="#">Event</a></li>
-<li><a href="#">Location</a></li>
-<li><a href="#">Boardgame</a></li>
-</ul>
-</div>
-
-<%= form_for(:event, {url: search_events_path, method: :get}) do |f|%>
-  <%= f.text_field :name, placeholder: "Search Events.." %>
-  <%= f.submit 'Search' %>
-
-  <div >
-    <%= f.label :location_id, "Location:" %>
-    <%= f.collection_select('location_id', Location.all, :id, :name, prompt: true) %>
-  </div>
-<% end %> -->
-
-
-<!-- <button><a href="/boardgames/new">New Board Game</button> -->
 <h1 class="Title">Boardgames Index</h1>
 <div class="indexbutton">
   <%= link_to '<button type="button">New Board Game</button>'.html_safe, new_boardgame_path %>
-  <%= link_to '<button type="button">Home Page</button>'.html_safe, events_path %>
+  <%= link_to '<button type="button">Home Page</button>'.html_safe, root_path %>
 </div>
 <table class="indextable">
   <thead>

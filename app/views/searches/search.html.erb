@@ -1,5 +1,33 @@
+<div class="forms">
+  <%= form_tag({controller: "searches", action: "search"}, method: "get", class: "nifty_form") do %>
+
+    <div class="field">
+      <%= label_tag :search_type %>
+      <%= select_tag :search_type, options_for_select(["Boardgame", "Event_Location", "Group"], @type)%>
+    </div><br>
+
+    <div class="field">
+      <%= label_tag :keyword, "Keyword:" %>
+      <%= text_field_tag :keyword %>
+    </div><br>
+
+    <div class="field">
+      <%= submit_tag "Search"%>
+    </div>
+  <% end %>
+</div>
+
+<div class="indexbutton">
+  <%= link_to '<button type="button">Board Game</button>'.html_safe, boardgames_path %>
+  <%= link_to '<button type="button">Group page</button>'.html_safe, groups_path %>
+  <%= link_to '<button type="button">Location</button>'.html_safe, locations_path %>
+  <%= link_to '<button type="button">Events</button>'.html_safe, events_path %>
+  <%= link_to '<button type="button">User List</button>'.html_safe, users_path %>
+</div>
+
 <h1 class="Title">Search Results</h1>
 <br >
+
 <% if @results.empty? %>
   <div class="searchResult">
     <p>No results found.</p>
