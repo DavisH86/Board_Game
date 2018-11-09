@@ -1,0 +1,37 @@
+<h1 class="Title">Edit Board Game Form</h1>
+<div class="forms">
+<%= form_for(@boardgame) do |f| %>
+
+  <% @boardgame.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title, "Title:" %>
+    <%= f.text_field :title %>
+  </div><br>
+
+  <div class="field">
+    <%= f.label :description, "Description:"%>
+    <%= f.text_field :description %>
+  </div><br>
+
+  <div class="field">
+    <%= f.label :rating, "Rating:"%>
+    <!-- <%= f.text_field :rating %> -->
+    <%= f.number_field :rating %>
+  </div><br>
+  <div class="field">
+    <%= f.label "Upload Board Game Photo (Optional)" %>
+    <%= f.file_field :boardgame_photo %>
+  </div><br>
+
+  <div class="field">
+    <%= f.submit "Save Change"%>
+  </div>
+<% end %>
+
+<div>
+<%= link_to "Back", boardgames_path %>
+</div>
+</div>

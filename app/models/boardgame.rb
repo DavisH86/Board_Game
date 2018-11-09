@@ -8,6 +8,7 @@ class Boardgame < ApplicationRecord
   has_many :scores
   has_many :reviews
 
+  mount_uploader :boardgame_photo, BoardgamePhotoUploader
 
   def self.search(search)
     where("title LIKE ?", "%#{search}%")

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'events#index'
+  root 'searches#search'
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   post 'boardgames/search', to: 'boardgames#search'
 
@@ -21,10 +21,10 @@ Rails.application.routes.draw do
     end
     resources :rounds
     resources :scores, only: [:create]
-    resources :boardgames, only: [:index, :new, :create]
+    resources :boardgames, only: [:index, :edit, :new, :create]
   end
 
-  resources :boardgames, only: [:index, :show, :create, :update, :new] do
+  resources :boardgames, only: [:index, :show, :create, :update, :edit, :new] do
     resources :reviews, only: [:new, :create]
     collection do
       get 'search'

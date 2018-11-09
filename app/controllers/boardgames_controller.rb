@@ -30,6 +30,7 @@ class BoardgamesController < ApplicationController
 
   def create
     @boardgame = Boardgame.new(boardgame_params)
+    @users = @boardgame.users
 
     if @boardgame.save
       flash[:notice] = "Boardgame added successfully"
@@ -40,9 +41,13 @@ class BoardgamesController < ApplicationController
     end
   end
 
+  def edit
+    @boardgame = Boardgame.find(params[:id])
+  end
+
   private
   def boardgame_params
 
-    params.require(:boardgame).permit(:title, :rating, :description, :keyword)
+    params.require(:boardgame).permit(:title, :rating, :description, :keyword, :boardgame_photo)
   end
 end
