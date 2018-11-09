@@ -38,6 +38,11 @@ Rails.application.routes.draw do
       get :followeds, :followers
     end
   end
+  resources :searches, only: [] do
+    collection do
+      get 'search'
+    end
+  end
   resources :followships, only: [:create, :destroy]
   resources :scores
   resources :rounds

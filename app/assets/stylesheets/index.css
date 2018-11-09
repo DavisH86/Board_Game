@@ -1,9 +1,9 @@
 .gameNight {
-  font-size: 5rem;
+  font-size: 30px;
   font-family: 'Notable', sans-serif;
   color: #A85826;
-  text-align: center;
-  text-shadow: 4px 5px #000000;
+  text-align: left;
+  text-shadow: 2px 2px #000000;
 }
 
 .users {

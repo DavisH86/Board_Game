@@ -1,0 +1,20 @@
+<h1>Search from</h1>
+
+<div class="forms">
+  <%= form_for(:search, {url: searches_path, method: :get}) do |f| %>
+
+  <div class="field">
+    <%= f.label :search_type %>
+    <%= f.select :search_type, ["Boardgame", "Event", "Location"] %>
+  </div><br>
+
+  <div class="field">
+    <%= f.label :keyword, "Keyword:" %>
+    <%= f.text_field :keyword %>
+  </div><br>
+
+  <div class="field">
+    <%= f.submit "Search"%>
+  </div>
+  <% end %>
+</div>

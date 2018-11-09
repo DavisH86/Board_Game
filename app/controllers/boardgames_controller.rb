@@ -3,6 +3,12 @@ class BoardgamesController < ApplicationController
 
   def index
     @boardgames = Boardgame.all
+
+    if params[:search]
+      @boardgames = Boardgame.search(params[:search])
+    else
+      @boardgames = Boardgame.all
+    end
   end
 
   def search
@@ -36,7 +42,7 @@ class BoardgamesController < ApplicationController
 
   private
   def boardgame_params
-    
-    params.require(:boardgame).permit(:title, :rating, :description)
+
+    params.require(:boardgame).permit(:title, :rating, :description, :keyword)
   end
 end

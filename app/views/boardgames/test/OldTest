@@ -17,5 +17,6 @@
   </ul>
 <% end %>
 
-
+<%= form_for(:search, {url: searches_path, method: :get}) do |f| %>
+<% end %>
 <%= select_date Date.today, prefix: :start_date %>
