@@ -10,23 +10,49 @@
 
 <div class="description">
   <h3 ><%= "Reviews:" %></h3>
-  <div class="bodyText scroll">
+  <div class="bodyText">
     <% if @reviews.nil? != true %>
       <% @reviews.each do |review| %>
 
         <%= "Score: #{review.rating}"%>
         <br>
-        <%= "#{review.body}, create by #{review.user.name}"%>
-        <br>
-
-        <%= "Created on: #{review.created_at.strftime("%B %d %Y")}" %>
+        <li><%= "#{review.body}, create by #{review.user.name}, Posted: #{review.created_at.strftime("%B %d %Y")}"%></li>
         <br>
       <% end %>
-      <br>
     <% end %>
   </div>
-  <%= link_to '<button type="button">Add a Review</button>'.html_safe, new_boardgame_review_path(@boardgame) %>
+
+  <div id="app"> </div>
+  <div hidden id="reviewForm">
+    <div id="close">
+      <i class="fas fa-window-close"></i>
+    </div>
+
+    <h1 class="Title">Review Form for <%= @boardgame.title %></h1>
+
+    <%= form_for [@boardgame, @review] do |f| %>
+
+     <% @review.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+     <% end %>
+      <div class="forms ">
+         <div class="field">
+           <%= f.label :rating, "Rating" %>
+           <%= f.number_field :rating %>
+         </div><br>
+         <div class="field">
+           <%= f.label :body, "Review:" %>
+           <%= f.text_field :body %>
+         </div>
+         <div id="submit">
+           <%= f.submit "Add Review" %>
+         </div>
+       </div>
+    <% end %>
+  </div>
 <hr>
+
+
 <% if current_user.nil? %>
 <%= link_to "Edit", edit_boardgame_path %> |
 <% end %>

@@ -1,8 +1,14 @@
 body {
-  background-image: image-url('catan.jpg');
+  background-image: image-url('catan-1.jpg');
   background-repeat: repeat;
   background-size: cover;
+
   // background-blend-mode: screen;
+}
+.appName {
+  font-family: 'Notable', sans-serif;
+  color: #A85826;
+  font-size: x-large;
 }
 
 .dropdown_button {
@@ -10,10 +16,10 @@ body {
   border: 3px solid brown;
   background-color: #ce892f;
 }
-.image-url {
-    opacity: 0.5;
-    filter: alpha(opacity=50);
-}
+// body image-url {
+//     opacity: 0.5;
+//     filter: alpha(opacity=50);
+// }
 
 .flash{
   color: white;

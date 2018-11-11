@@ -1,17 +1,18 @@
 .forms {
-  font-size: 4rem;
   margin: auto;
+  margin-top: 20px;
   width: 60%;
   background-color: #f2dabc;
-  border-radius: 30px solid brown;
+  border-radius: 30px;
   font-size: 20px;
   padding: 20px;
 }
 
 .forms label {
-  font-size: 20px;
+  font-size: 25px;
 
 }
+
 .newLabel {
 
   background-color: #f2dabc;
@@ -19,13 +20,4 @@
   color: #3a342f;
   font-size: 20px;
   padding: 10px;
-}
-
-.description {
-  border: 3px solid brown;
-  border-radius: 25px;
-  background-color: #f2dabc;
-  font-size: 20px;
-  padding: 10px;
-  margin: 2rem;
 }

@@ -6,12 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Event.create([
-  { name: "Hat", location_id: 1, description: "Money makes the world go round.  We need to prepare by buying all resources we can!", user_id: nil, boardgame_ids: [1, 2, 7],  organizer_id: 3, eventdate: DateTime.strptime("08/01/2018 17:00", "%m/%d/%Y %H:%M")},
-  { name: "Spy Night", location_id: 2, description: "It's time to battle!!! ...With words. Lets have fun.", user_id: nil, organizer_id: 2, boardgame_ids: [5], eventdate: DateTime.strptime("11/09/2018 17:00", "%m/%d/%Y %H:%M") },
-  { name: "Battleship", location_id: 3, description: "Lets try something old school. Try to sink my Battleship!" , user_id: nil, organizer_id: 1, boardgame_ids: [3, 6, 7], eventdate: DateTime.strptime("11/16/2018 17:00", "%m/%d/%Y %H:%M") },
-  { name: "I spy", location_id: 2, description: "It's time for another mission Red spies. Lets get those Blues!!!", user_id: nil, organizer_id: 3, boardgame_ids: [5], eventdate: DateTime.strptime("11/17/2018 17:00", "%m/%d/%Y %H:%M") },
-  { name: "Pictionary", location_id: 2, description: "Let's do something with a little flare with pictures", user_id: nil, organizer_id: 2, boardgame_ids: [4, 5, 7], eventdate: DateTime.strptime("11/21/2018 17:00", "%m/%d/%Y %H:%M") }
+User.create([
+  {  name: "Davisma", email: "davis@gmail.com", encrypted_password: "light1", password: "light1", profile_photo:nil },
+  { name: "Metmee meme", email: "dmate@gmail.com", encrypted_password: "Mememe", password: "Mememe", profile_photo:nil },
+  { name: "John Art", email: "John@gmail.com",  encrypted_password: "Buckle", password: "Buckle", profile_photo:nil }
   ]);
 
 Boardgame.create([
@@ -25,14 +23,15 @@ Boardgame.create([
   { title: "Catan", description: "Description: Picture yourself in the era of discoveries: after a long voyage of great deprivation, your ships have finally reached the coast of an uncharted island. Its name shall be Catan! But you are not the only discoverer. Other fearless seafarers have also landed on the shores of Catan: the race to settle the island has begun!", rating: "5", remote_boardgame_photo_url: "https://c1.staticflickr.com/4/3229/3153880613_f9d41fe4b8_b.jpg" }
   ]);
 
-User.create([
-  {  name: "Davisma", email: "davis@gmail.com", encrypted_password: "light1", password: "light1", profile_photo:nil },
-  { name: "Metmee meme", email: "dmate@gmail.com", encrypted_password: "Mememe", password: "Mememe", profile_photo:nil },
-  { name: "John Art", email: "John@gmail.com",  encrypted_password: "Buckle", password: "Buckle", profile_photo:nil }
-  ]);
-
-Location.create([
-  { name: "Lucky Goblin", address: "1456 Hancock Street Quincy, MA 02169"},
-  { name: "Launch Academy", address: "77 Summer St 7th Floor Boston, MA 02111" },
-  { name: "The Corner Mall", address: "417 Washington Street, at Downtown Crossing" }
-  ]);
+  Location.create([
+    { name: "Lucky Goblin", address: "1456 Hancock Street Quincy, MA 02169"},
+    { name: "Launch Academy", address: "77 Summer St 7th Floor Boston, MA 02111" },
+    { name: "The Corner Mall", address: "417 Washington Street, at Downtown Crossing" }
+    ]);
+  Event.create([
+    { name: "Hat", location_id: 1, description: "Money makes the world go round.  We need to prepare by buying all resources we can!", user_id: nil, boardgame_ids: [1, 2, 7],  organizer_id: 3, eventdate: DateTime.strptime("08/01/2018 17:00", "%m/%d/%Y %H:%M")},
+    { name: "Spy Night", location_id: 2, description: "It's time to battle!!! ...With words. Lets have fun.", user_id: nil, organizer_id: 2, boardgame_ids: [5], eventdate: DateTime.strptime("11/09/2018 17:00", "%m/%d/%Y %H:%M") },
+    { name: "Battleship", location_id: 3, description: "Lets try something old school. Try to sink my Battleship!" , user_id: nil, organizer_id: 1, boardgame_ids: [3, 6, 7], eventdate: DateTime.strptime("11/16/2018 17:00", "%m/%d/%Y %H:%M") },
+    { name: "I spy", location_id: 2, description: "It's time for another mission Red spies. Lets get those Blues!!!", user_id: nil, organizer_id: 3, boardgame_ids: [5], eventdate: DateTime.strptime("11/17/2018 17:00", "%m/%d/%Y %H:%M") },
+    { name: "Pictionary", location_id: 2, description: "Let's do something with a little flare with pictures", user_id: nil, organizer_id: 2, boardgame_ids: [4, 5, 7], eventdate: DateTime.strptime("11/21/2018 17:00", "%m/%d/%Y %H:%M") }
+    ]);

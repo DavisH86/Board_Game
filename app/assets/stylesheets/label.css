@@ -9,22 +9,6 @@
   padding: 10px;
 }
 
-.searchResult {
-  margin: auto;
-  font-size: 2rem;
-  color: black;
-  border: 3px solid brown;
-  border-radius: 25px;
-  background-color: white;
-  width: 60%;
-  padding: 10px;
-}
-
-.searchResult p {
-  font-size: 2rem;
-
-}
-
 .newLabel label {
   color: black;
   font-size: 1rem;
