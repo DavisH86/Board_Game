@@ -3,7 +3,8 @@
   <%= "Description: #{@event.description}" %><br>
   <%= "Location: #{@event.location.name}, #{@event.location.address}" %><br>
   <% if current_user == @event.organizer %>
-    <%= link_to '<button type="button">Change Location</button>'.html_safe, edit_event_path(@event) %>
+    <%= link_to '<button type="button">Change Location</button>'.html_safe, edit_event_path(@event) %>|
+    <%= link_to '<button type="button">Add a Location</button>'.html_safe, new_location_path %>
   <% end %>
 </div>
 

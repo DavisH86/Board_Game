@@ -9,8 +9,8 @@ describe EventsController do
   before(:each) do
     user = User.create(email: "testing@gmail.com", name: "username", password: "password1")
     boardgame = Boardgame.create(title: "Bat", description: "man", rating: 4)
-    Event.create(name: "Jump", description: "Clock", location: "downtown", user: user, boardgame: boardgame)
-    Event.create(name: "rock", description: "house", location: "downtown", user: user, boardgame: boardgame)
+    Event.create(name: "Jump", description: "Clock", location_id: 1, organizer_id: 1, boardgame_ids: 1)
+    Event.create(name: "rock", description: "house", location_id: 2, organizer_id: 2, boardgame_ids: 1)
   end
 
   describe "GET index" do

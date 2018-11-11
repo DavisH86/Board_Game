@@ -142,12 +142,10 @@ ActiveRecord::Schema.define(version: 2018_11_09_134811) do
     t.integer "win", null: false
     t.integer "lose", null: false
     t.bigint "user_id", null: false
-    t.bigint "event_id", null: false
-    t.bigint "boardgame_id", null: false
+    t.bigint "round_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["boardgame_id"], name: "index_scores_on_boardgame_id"
-    t.index ["event_id"], name: "index_scores_on_event_id"
+    t.index ["round_id"], name: "index_scores_on_round_id"
     t.index ["user_id"], name: "index_scores_on_user_id"
   end
 

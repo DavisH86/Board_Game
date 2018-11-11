@@ -1,20 +1,22 @@
-<div class="forms">
-  <%= form_tag({controller: "searches", action: "search"}, method: "get", class: "nifty_form") do %>
+<div class="searchBox">
+  <div >
+    <%= form_tag({controller: "searches", action: "search"}, method: "get", class: "nifty_form") do %>
 
-    <div class="field">
-      <%= label_tag :search_type %>
-      <%= select_tag :search_type, options_for_select(["Boardgame", "Event_Location", "Group"], @type)%>
-    </div><br>
+      <div class="field searchTable">
+        <%= label_tag :search_type %>
+        <%= select_tag :search_type, options_for_select(["Boardgame", "Event_Location", "Group"], @type)%>
+      </div><br>
 
-    <div class="field">
-      <%= label_tag :keyword, "Keyword:" %>
-      <%= text_field_tag :keyword %>
-    </div><br>
+      <div class="field searchTable">
+        <%= label_tag :keyword, "Keyword:" %>
+        <%= text_field_tag :keyword %>
+      </div><br>
 
-    <div class="field">
-      <%= submit_tag "Search"%>
-    </div>
-  <% end %>
+      <div class="field">
+        <%= submit_tag "Search"%>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <div class="indexbutton">

@@ -1,3 +1,54 @@
 // Place all the styles related to the searches controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.searchbar {
+  margin: auto;
+}
+
+.searchBox {
+  margin: auto;
+  margin-top: 10px;
+  width: 60%;
+  background-color: #f2dabc;
+  border-radius: 20px;
+  border: 30px solid #A36854;
+  font-size: 20px;
+  padding: 20px;
+}
+
+.searchTable {
+  margin: auto;
+  width: 60%;
+  font-size: 20px;
+  padding: 20px;
+}
+
+.searchTable label {
+  font-family: 'Notable', sans-serif;
+}
+
+.searchResult {
+  margin: auto;
+  font-size: 2rem;
+  color: black;
+  border: 3px solid brown;
+  border-radius: 25px;
+  background-color: white;
+  width: 60%;
+  padding: 10px;
+}
+
+.searchResult p {
+  font-size: 2rem;
+
+}
+// .forms {
+//   font-size: 4rem;
+//   margin: auto;
+//   width: 60%;
+//   background-color: #f2dabc;
+//   border: 30px solid brown;
+//   font-size: 20px;
+//   padding: 20px;
+// }

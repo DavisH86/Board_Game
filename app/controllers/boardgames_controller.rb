@@ -26,6 +26,7 @@ class BoardgamesController < ApplicationController
   def show
     @boardgame = Boardgame.find(params[:id])
     @reviews = @boardgame.reviews
+    @review = Review.new
   end
 
   def create
