@@ -1,6 +1,8 @@
 
 <div class="center">
-  <%= link_to "edit account", edit_user_registration_path %>
+  <% if current_user == @user %>
+    <%= link_to "edit account", edit_user_registration_path %>
+  <% end %>
 <p>Email:<%= @user.email %></p>
   <% provide(:title, @user.name) %>
   <div class="row">
