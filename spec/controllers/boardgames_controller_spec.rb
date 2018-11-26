@@ -1,16 +1,28 @@
-# RSpec.describe BoardgamesController do
-#   xdescribe "GET index" do
-#     it "assigns @boardgame" do
-#       boardgame = Boardgame.create(title: "Jump", description: "Joy", rating: "5")
-#       get :index
-#       expect(response.body).to eq([boardgame])
-#     end
-#
-#     it "renders the index template" do
-#       get :index
-#       expect(response).to render_template("index")
-#     end
-#   end
+require 'rails_helper'
+
+RSpec.describe BoardgamesController do
+  boardgame = Boardgame.create(title: "Jump", description: "Joy", rating: "5")
+  describe "GET index" do
+    it "assigns @boardgame" do
+      get :index
+      expect(assigns(:boardgames).count).to eq(1)
+    end
+
+    it "renders the index template" do
+      get :index
+      expect(response).to render_template("index")
+    end
+  end
+
+  describe "GET show" do
+    it "displays a boardgame in show page" do
+      a = Boardgame.first
+      get :show, params: {id: a.id}
+
+      expect(response).to render_template("show")
+      expect(assigns(:boardgame)).to eq(a)
+    end
+  end
 # x  describe "GET search" do
 #     it "returns a blank boardgame is the search does not exist" do
 #       get :search params: {title: "noneExist"}
@@ -35,4 +47,4 @@
 #       expect(response.body.count).to eq([1])
 #     end
 #   end
-# end
+end

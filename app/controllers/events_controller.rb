@@ -2,7 +2,6 @@ class EventsController < ApplicationController
 before_action :authenticate_user!, except: [:index, :show]
 
   def index
-
     @events = Event.all
     @boardgames = Boardgame.all
     @locations = Location.all
@@ -45,7 +44,7 @@ before_action :authenticate_user!, except: [:index, :show]
     @comments = @event.comments
     @score = Score.new
     @round = @event.boardgames
-    
+
   end
 
   def edit
