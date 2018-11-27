@@ -1,0 +1,7 @@
+<h1>List of articles</h1>
+<% @articles.order(:created_at).reverse.each do |article| %>
+<div class="bodyText">
+  <%= article.title %><br>
+  <%= article.description %>
+</div>
+<% end %>

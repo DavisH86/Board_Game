@@ -20,6 +20,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :scores
   has_many :reviews
+  has_many :articles
 
   #follower following me
   has_many :follower_followships, class_name: "Followship", foreign_key: "follower_id", dependent: :destroy

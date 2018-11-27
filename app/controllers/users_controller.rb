@@ -15,6 +15,8 @@ class UsersController < ApplicationController
     @users = User.all
     @user = current_user.id
     @user = User.find(params[:id])
+    @articles = @user.articles.order(:created_at).reverse
+    @article = Article.new
   end
 
   def followeds
@@ -31,6 +33,6 @@ class UsersController < ApplicationController
   end
   private
   def user_params
-    params.require(:user).permit(:name,:profile_photo, :email, :followed_id, :follower_id)
+    params.require(:user).permit(:name,:profile_photo, :email, :followed_id, :follower_id, :article)
   end
 end

@@ -37,7 +37,11 @@ Rails.application.routes.draw do
     member do
       get :followeds, :followers
     end
+    resources :articles
   end
+
+  resources :articles
+
   resources :searches, only: [] do
     collection do
       get 'search'

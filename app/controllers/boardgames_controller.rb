@@ -25,7 +25,7 @@ class BoardgamesController < ApplicationController
 
   def show
     @boardgame = Boardgame.find(params[:id])
-    @reviews = @boardgame.reviews
+    @reviews = @boardgame.reviews.order(:created_at).reverse
     @review = Review.new
   end
 

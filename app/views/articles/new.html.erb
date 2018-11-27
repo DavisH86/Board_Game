@@ -1,0 +1,20 @@
+<h1 class="Title">Blog for <%= @user.name %> </h1>
+<div class="forms">
+<%= form_for [@user, @article] do |f| %>
+
+  <% @article.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+
+    <div class="field">
+      <%= f.label :title, "Title" %>
+      <%= f.text_field :title %>
+    </div>
+
+    <div class="field">
+      <%= f.label :description, "Description" %>
+      <%= f.text_area :description %>
+    </div>
+    <%= f.submit "Add Blog" %>
+  </div>
+<% end %>
