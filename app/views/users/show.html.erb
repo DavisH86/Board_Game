@@ -21,3 +21,18 @@
     </div>
   </div>
 </div>
+
+<div class="description">
+  <h3><%= "Blog:" %></h3>
+  <%= link_to '<button type="button">Post</button>'.html_safe, new_user_article_path(@user) %>
+<br>
+  <% if @articles.nil? != true %>
+    <% @articles.each do |article| %>
+    <div class="bodyText">
+      <%= article.title %> <br>
+      <%= article.description %> <br>
+      <%= "#{article.user.name}, Post on: #{article.created_at.strftime("%B %d %Y")}" %>
+    </div>
+    <% end %>
+  <% end  %>
+</div>

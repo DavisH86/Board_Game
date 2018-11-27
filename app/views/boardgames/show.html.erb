@@ -10,17 +10,16 @@
 
 <div class="description">
   <h3 ><%= "Reviews:" %></h3>
-  <div class="bodyText">
     <% if @reviews.nil? != true %>
       <% @reviews.each do |review| %>
-
+      <div class="bodyText">
         <%= "Score: #{review.rating}"%>
         <br>
         <li><%= "#{review.body}, create by #{review.user.name}, Posted: #{review.created_at.strftime("%B %d %Y")}"%></li>
         <br>
+      </div>
       <% end %>
     <% end %>
-  </div>
 
   <div id="app"> </div>
   <div hidden id="reviewForm">
@@ -54,7 +53,7 @@
 
 
 <% if current_user.nil? %>
-<%= link_to "Edit", edit_boardgame_path %> |
+  <%= link_to "Edit", edit_boardgame_path %> |
 <% end %>
 <%= link_to "Board Games", boardgames_path %>|
 <%= link_to "Group Page", groups_path %>
