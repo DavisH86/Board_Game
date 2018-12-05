@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page], per_page: 5)
   end
 
   # Returns a user's status feed.
@@ -22,13 +22,13 @@ class UsersController < ApplicationController
   def followeds
     @title = "Following"
     @user = User.find(params[:id])
-    @users = @user.followeds.paginate(page: params[:page])
+    @users = @user.followeds.paginate(page: params[:page], per_page: 5)
     render 'show_follow'
   end
   def followers
     @title = "Followers"
     @user = User.find(params[:id])
-    @users = @user.followers.paginate(page: params[:page])
+    @users = @user.followers.paginate(page: params[:page], per_page: 5)
     render 'show_follow'
   end
   private

@@ -9,9 +9,12 @@
       <%= render 'shared/stats' %>
       <% if @users.any? %>
         <div >
+          <%= will_paginate @users %>
           <% @users.each do |user| %>
+          <li>
             <%= link_to "#{user.name}", user_path(user)%>
             <%= link_to (image_tag "#{current_user.profile_photo}", size: "40x40"), user_path(user) %>
+          </li>
           <% end %>
         </div>
       <% end %>
